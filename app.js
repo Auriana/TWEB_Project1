@@ -15,5 +15,5 @@ app.set('views', './views');
 app.set('view engine', 'jade');
 
 app.get('/', function (req, res) {
-  res.render('index', { title: 'Hey', message: 'Hello wooorld!'});
+  res.render('index', { title: 'Hey', message: 'Hello wooorld bébé!'});
 })
