@@ -27,9 +27,9 @@ of the presentation he want to take part of and starts the PDF.
 - Logging page (log in/sign in)
 - Home page (after logging)
 - Presentation :
-	- Presenter screen
-	- Viewer screen
-- Viewer screen.
+	- Presenter screen (slides, requests and chat).
+	- Only slides for the projector
+- Viewer screen (slides, requests, stats and chat).
 - Presentation summary for past presentations : title, PDF file, description, date and stats (requests).
 - Admin dashboard.
 
