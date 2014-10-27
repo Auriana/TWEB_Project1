@@ -1,4 +1,18 @@
 div(ng-include='"components/navbar/navbar.html"')
 
 .col-md-12
-    | This is the testPdf view.
+	div
+		button#prev Previous
+		button#next Next
+		span
+			| Page:
+			span#page_num
+			| /
+			span#page_count
+		div
+			canvas#the-canvas(style='border:1px solid black')
+
+//In production, change the content of PDFJS.workerSrc below 
+script(src='assets/libs/pdf.js')
+script(src='assets/libs/pdfJsLib2.js')
+
