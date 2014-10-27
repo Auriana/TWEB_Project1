@@ -1,7 +1,14 @@
 TWEB_Project1
 =============
 
-## To do for next Monday
+## To do for 03/11/14
+
+## Done (27/10/14)
+- Installed Bower/Grunt/AngularJs on Heroku (works on both computers)
+- Tested PDF.js on localhost (PrevNext example)
+- Added a new route on Heroku side.
+
+## To do for 27/10/14
 - Find a cool name for the application
 > Dimmi is the name.
 - Find a graphical chart (logo, colors, style)
