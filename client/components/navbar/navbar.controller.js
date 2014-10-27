@@ -5,7 +5,11 @@ angular.module('twebProject1App')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    }];
+    }, {
+      'title': 'TestPDF',
+      'link': '/testPdf'
+    }
+	];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
