@@ -8,6 +8,9 @@ angular.module('twebProject1App')
     }, {
       'title': 'TestPDF',
       'link': '/testPdf'
+    }, {
+      'title': 'TestSocketIO',
+      'link': '/testSocketIO'
     }
 	];
 
