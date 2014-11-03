@@ -5,7 +5,7 @@ angular.module('twebProject1App')
     $stateProvider
       .state('testSocketIO', {
         url: '/testSocketIO',
-        templateUrl: 'app/testSockerIO/testSocketIO.html',
+        templateUrl: 'app/testSocketIO/testSocketIO.html',
         controller: 'TestsocketioCtrl'
       });
   });

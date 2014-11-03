@@ -1,0 +1,11 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+.col-md-12
+	| Chat test with SocketIO
+	.p
+		.btn.btn-primary(ng-click='send()') Send
+		input.form-control(ng-model='inputChat', type='text')
+
+	.p
+		|live chat :
+		|{{msg}}
