@@ -2,10 +2,16 @@ div(ng-include='"components/navbar/navbar.html"')
 
 .col-md-12
 	| Chat test with SocketIO
-	.p
-		.btn.btn-primary(ng-click='send()') Send
-		input.form-control(ng-model='inputChat', type='text')
 
-	.p
-		|live chat :
-		|{{msg}}
+	form.thing-form
+	p.input-group
+		input.form-control(type='text', placeholder='Enter your message', ng-model='inputChat')
+		
+		span.input-group-btn
+			button.btn.btn-primary(type='submit', ng-click='send()') Send
+			
+	#chatDisplay
+		ul(ng-repeat='thing in listeMsg', ng-init='scroll()')
+			li
+				{{thing.time}}
+				| : {{thing.name}}

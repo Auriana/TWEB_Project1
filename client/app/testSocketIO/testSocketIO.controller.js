@@ -1,17 +1,34 @@
 'use strict';
 
 angular.module('twebProject1App')
-  .controller('TestsocketioCtrl', function ($scope, $http, socket) {
+  .controller('TestsocketioCtrl', function ($scope, $http, socket) {	
+  
+	$scope.listeMsg = [];
+	$scope.date = new Date();
+  
+	$http.get('/api/messages').success(function(listeMsg) {
+		$scope.listeMsg = listeMsg;
+		socket.syncUpdates('message', $scope.listeMsg);
+    });
 
-	$scope.send = function(){
-		alert('send!');
-		alert(socket.socket.toSource());
-		socket.socket.emit('chat message', 'test');
-	};
+	$scope.send = function() {
+      if($scope.inputChat === '') {
+        return;
+      }
+	  
+	  $scope.date = new Date();
+	  $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
+	  
+      $http.post('/api/messages', { name: $scope.inputChat , time : $scope.formedDate});
+      $scope.inputChat = '';
+	  
+    };
 	
-	$scope.msg = 'poney';
+	$scope.$on('$destroy', function () {
+      socket.unsyncUpdates('message');
+    });	
 	
-	socket.socket.on('chat message', function(msg){
-		$scope.msg = msg;
-	});
+	$scope.scroll = function(){
+		document.getElementById('chatDisplay').scrollTop = 99999;
+	}
   });
