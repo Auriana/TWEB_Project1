@@ -1,13 +1,21 @@
 'use strict';
 
 angular.module('twebProject1App')
-.controller('TestpdfCtrl', function ($scope) {
+.controller('TestpdfCtrl', function ($scope, $http, socket) {
 	$scope.message = 'Hello';
+
+	//
+	// If absolute URL from the remote server is provided, configure the CORS
+	// header on that server.
+	//
+
+	var url = './data/WebInfra.pdf';	
+
 
 	//
 	// Fetch the PDF document from the URL using promises
 	//
-	PDFJS.getDocument('./data/WebInfra.pdf').then(function(pdf) {
+	PDFJS.getDocument(url).then(function(pdf) {
 		// Using promise to fetch the page
 		pdf.getPage(1).then(function(page) {
 			var scale = 1.5;
@@ -30,25 +38,6 @@ angular.module('twebProject1App')
 		});
 	});
 
-	//
-	// If absolute URL from the remote server is provided, configure the CORS
-	// header on that server.
-	//
-	
-	var url = '../../web/compressed.tracemonkey-pldi-09.pdf';
-	
-	//
-	// Disable workers to avoid yet another cross-origin issue (workers need
-	// the URL of the script to be loaded, and dynamically loading a cross-origin
-	// script does not work).
-	//
-	// PDFJS.disableWorker = true;
-	//
-	// In cases when the pdf.worker.js is located at the different folder than the
-	// pdf.js's one, or the pdf.js is executed via eval(), the workerSrc property
-	// shall be specified.
-	//
-	// PDFJS.workerSrc = '../../build/pdf.worker.js';
 	var pdfDoc = null,
 		pageNum = 1,
 		pageRendering = false,
@@ -56,8 +45,8 @@ angular.module('twebProject1App')
 		scale = 0.8,
 		canvas = document.getElementById('the-canvas'),
 		ctx = canvas.getContext('2d');
-	
-	/**
+
+	/*
 	* Get page info from document, resize canvas accordingly, and render page.
 	* @param num Page number.
 	*/
@@ -68,12 +57,14 @@ angular.module('twebProject1App')
 			var viewport = page.getViewport(scale);
 			canvas.height = viewport.height;
 			canvas.width = viewport.width;
+
 			// Render PDF page into canvas context
 			var renderContext = {
 				canvasContext: ctx,
 				viewport: viewport
 			};
 			var renderTask = page.render(renderContext);
+
 			// Wait for rendering to finish
 			renderTask.promise.then(function () {
 				pageRendering = false;
@@ -84,11 +75,12 @@ angular.module('twebProject1App')
 				}
 			});
 		});
+
 		// Update page counters
 		document.getElementById('page_num').textContent = pageNum;
 	}
-	
-	/**
+
+	/*
 	* If another page rendering in progress, waits until the rendering is
 	* finised. Otherwise, executes rendering immediately.
 	*/
@@ -99,31 +91,29 @@ angular.module('twebProject1App')
 			renderPage(num);
 		}
 	}
-	
+
 	/**
-	* ICI !! Displays previous page.
+	* Displays previous page.
 	*/
-	function onPrevPage() {
+	$scope.onPrevPage = function () {
 		if (pageNum <= 1) {
 			return;
 		}
 		pageNum--;
 		queueRenderPage(pageNum);
 	}
-	document.getElementById('prev').addEventListener('click', onPrevPage);
-	
+
 	/**
-	* ICI !!  Displays next page.
+	* Displays next page.
 	*/
-	function onNextPage() {
+	$scope.onNextPage = function () {
 		if (pageNum >= pdfDoc.numPages) {
 			return;
 		}
 		pageNum++;
 		queueRenderPage(pageNum);
 	}
-	document.getElementById('next').addEventListener('click', onNextPage);
-	
+
 	/**
 	* Asynchronously downloads PDF.
 	*/

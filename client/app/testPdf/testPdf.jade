@@ -1,14 +1,14 @@
 div(ng-include='"components/navbar/navbar.html"')
-p Test 2
-button#prev Previous
-button#next Next
-span
-| Page:
-span#page_num
-| /
-span#page_count
-div
-canvas#the-canvas(style='border:1px solid black')
-
-
-
+.container
+	.row
+	    .col-lg-12
+      		h1.page-header Title of the presentation
+			button#prev(type='button', ng-click='onPrevPage()') Previous
+			button#prev(type='button', ng-click='onNextPage()') Next
+			span
+			| Page:
+			span#page_num
+			| /
+			span#page_count
+			.col-lg-12
+				canvas#the-canvas 
