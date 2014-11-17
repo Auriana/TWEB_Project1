@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('twebProject1App')
-  .controller('MainCtrl', function ($scope, $http, socket, Auth) {
+  .controller('HomeCtrl', function ($scope, $http, socket, Auth) {
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {
