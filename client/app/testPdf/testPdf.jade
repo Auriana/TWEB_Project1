@@ -1,13 +1,13 @@
 div(ng-include='"components/navbar/navbar.html"')
 .container
-	.row
-	    .col-lg-12
-      		h1.page-header Title of the presentation
-			button#prev(type='button', ng-click='onPrevPage()') Previous
-			button#prev(type='button', ng-click='onNextPage()') Next
-			span
-			| Page:
-			span#page_num
-			| /
-			span#page_count
-				canvas#the-canvas 
+  .row
+    .col-lg-12
+      h1.page-header Title of the presentation
+      button#prev(type='button', ng-click='onPrevPage()') Previous
+      button#prev(type='button', ng-click='onNextPage()') Next
+      span
+      | Page:
+      span#page_num
+      | /
+      span#page_count
+      canvas#the-canvas 
