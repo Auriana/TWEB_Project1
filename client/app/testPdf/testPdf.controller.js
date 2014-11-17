@@ -25,8 +25,8 @@ angular.module('twebProject1App')
 			//
 			var canvas = document.getElementById('the-canvas');
 			var context = canvas.getContext('2d');
-			canvas.height = viewport.height;
-			canvas.width = viewport.width;
+			canvas.height = viewport.height - 100;
+			canvas.width = viewport.width - 100;
 			//
 			// Render PDF page into canvas context
 			//

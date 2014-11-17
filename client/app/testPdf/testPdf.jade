@@ -1,13 +1,34 @@
 div(ng-include='"components/navbar/navbar.html"')
 .container
   .row
-    .col-lg-12
-      h1.page-header Title of the presentation
-      button#prev(type='button', ng-click='onPrevPage()') Previous
-      button#prev(type='button', ng-click='onNextPage()') Next
-      span
-      | Page:
-      span#page_num
-      | /
-      span#page_count
-      canvas#the-canvas 
+    .col-md-7
+      h1.page-header Title of the presentation     
+      #no_pages
+        span
+        | Page:
+        span#page_num
+        | /
+        span#page_count
+      .clearer
+      canvas#the-canvas
+      #nav_slides
+        button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onPrevPage()') Previous
+        button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onNextPage()') Next
+      #chatDisplay
+        h2 Audience live
+        ul(ng-repeat='thing in listeMsg', ng-init='scroll()')
+          li
+            {{thing.time}}
+            | : {{thing.name}}  
+    .col-md-3.col-md-offset-1.color-bloc
+      h2 My requests
+      button.btn.btn-default.btn-lg.black-button(type='button', value='slow_down') Slow down
+      button.btn.btn-default.btn-lg.black-button(type='button', value='louder') Louder, please
+      button.btn.btn-default.btn-lg.black-button(type='button', value='lost') I'm lost
+      button.btn.btn-default.btn-lg.black-button(type='button', value='interesting') Interesting
+      h2 My input
+      form.thing-form
+        p.input-group
+        input.form-control(type='text', placeholder='Enter your message', ng-model='inputChat')
+        span.input-group-btn
+         button.btn.btn-default.btn-lg.black-button(type='submit', ng-click='send()') Send
