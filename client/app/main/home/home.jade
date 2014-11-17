@@ -1,42 +1,41 @@
 div(ng-include='"components/navbar/navbar.html"')
-
-header#banner.hero-unit
-	.container
-		h1 TWEB Project 1
-
 .container
 	.row
 		.col-md-6
 			h1 Presenter side
-			form.presenter
-			fieldset
-				legend Prepare a new presentation
-				
-					input.form-control(type='text', placeholder='name', ng-model='name')
-					
-					textarea.form-control(placeholder='Description', ng-model='desc')
-					
-					select(ng-model="pdfList", ng-options="item as item for item in pdfList")
-						option(value="")
-					
-					.span-2
-						button.btn.btn-primary(type='submit', ng-click='startNewPresentation') Start
+			.col-md-12.color-bloc
+				form.presenter
+					h2 Prepare a new presentation
+					.form-group
+						label Title
+						input.form-control(type='text', placeholder='name', ng-model='name')
+					.form-group
+						label Description
+						textarea.form-control(placeholder='Description', ng-model='desc')
+					.form-group
+						label PDF file
+						select(ng-model="pdfList", ng-options="item as item for item in pdfList")
+							option(value="")
+					.form-group
+						.span-2
+							button.btn.btn-primary.black-button(type='submit', ng-click='startNewPresentation') Start
 
 
 		.col-md-6
-			h1 Viewser side
-			form.join
-			fieldset
-				legend Join presenter
-					
-					input.form-control(type='text', placeholder='Presenter\'s name', ng-model='name')
-					
-				.span-2
-					button.btn.btn-primary(type='submit', ng-click='startNewPresentation') Join
+			h1 Viewer side
+			.col-md-12.color-bloc
+				form.join
+					h2 Join presenter
+					.form-group
+						label Presenter	
+						input.form-control(type='text', placeholder='Presenter\'s name', ng-model='name')
+					.form-group
+						.span-2
+						button.btn.btn-primary.black-button(type='submit', ng-click='startNewPresentation') Join
 
 footer.footer
 	.container
 		p
-		| Angular Fullstack v2.0.13
+		| Dimmi v0
 		= ' | '
-		| TWEB Project 1 
+		| TWEB Project 1 - Anthony Roubaty & Auriana Hug 
