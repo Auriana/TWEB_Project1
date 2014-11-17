@@ -1,7 +1,8 @@
-'use strict';
+'use strict'
 
 angular.module('twebProject1App')
   .controller('HomeCtrl', function ($scope, $http, socket, Auth) {
+  
     $scope.awesomeThings = [];
 
     $http.get('/api/things').success(function(awesomeThings) {
@@ -24,4 +25,11 @@ angular.module('twebProject1App')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
     });
+	
+	
+	
+	$scope.pdfList = ["PDF1", "PDF2", "PDF3"];
+	
+	
   });
+
