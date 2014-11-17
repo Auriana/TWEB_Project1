@@ -1,17 +1,28 @@
 div(ng-include='"components/navbar/navbar.html"')
-
-.col-md-12
-	| Chat test with SocketIO
-
-	form.thing-form
-	p.input-group
-		input.form-control(type='text', placeholder='Enter your message', ng-model='inputChat')
-		
-		span.input-group-btn
-			button.btn.btn-primary(type='submit', ng-click='send()') Send
-			
-	#chatDisplay
-		ul(ng-repeat='thing in listeMsg', ng-init='scroll()')
-			li
-				{{thing.time}}
-				| : {{thing.name}}
+.container
+  .row
+    .col-md-7
+      h1.page-header {{titlePresentation}}  
+      #no_pages
+        span
+        | Page:
+        span#page_num
+        | /
+        span#page_count
+      .clearer
+      canvas#the-canvas
+      #nav_slides
+        button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onPrevPage()') Previous
+        button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onNextPage()') Next
+      #chatDisplay
+        h2 Audience live
+        ul(ng-repeat='thing in listeMsg', ng-init='scroll()')
+          li
+            {{thing.time}}
+            | : {{thing.name}}  
+    .col-md-3.col-md-offset-1.color-bloc
+      h2 Audience requests
+      p.btn-lg.black-button {{nbSlow}} Slow down 
+      p.btn-lg.black-button {{nbLoud}} Louder, please
+      p.btn-lg.black-button {{nbLost}} I'm lost
+      p.btn-lg.black-button {{nbInte}} Interesting

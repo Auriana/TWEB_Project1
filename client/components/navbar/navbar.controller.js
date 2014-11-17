@@ -6,10 +6,10 @@ angular.module('twebProject1App')
       'title': 'Home',
       'link': '/'
     }, {
-      'title': 'TestPDF',
+      'title': 'Viewer Side',
       'link': '/testPdf'
     }, {
-      'title': 'TestSocketIO',
+      'title': 'Presenter Side',
       'link': '/testSocketIO'
     }
 	];

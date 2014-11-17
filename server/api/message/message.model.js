@@ -7,6 +7,7 @@ var MessageSchema = new Schema({
   name: String,
   info: String,
   time: String,
+  type: String,
   active: Boolean
 });
 
