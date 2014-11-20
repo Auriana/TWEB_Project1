@@ -64,6 +64,12 @@ angular.module('twebProject1App')
 		$http.post('/api/messages', { name: "Interesting..." , time : $scope.formedDate, type : "interesting"});
 	}
 	
+	//synchronisation des pages du PDF
+	socket.socket.on('pageNumber', function(num) {
+          queueRenderPage(num);
+          pageNum = num;
+	});
+	
 	//////////////////////
 	//
 	// If absolute URL from the remote server is provided, configure the CORS

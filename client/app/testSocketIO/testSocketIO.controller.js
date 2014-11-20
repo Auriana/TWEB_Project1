@@ -158,6 +158,7 @@ angular.module('twebProject1App')
 			return;
 		}
 		pageNum--;
+		socket.socket.emit('pageNumber', pageNum);
 		queueRenderPage(pageNum);
 	}
 
@@ -169,6 +170,7 @@ angular.module('twebProject1App')
 			return;
 		}
 		pageNum++;
+		socket.socket.emit('pageNumber', pageNum);
 		queueRenderPage(pageNum);
 	}
 
