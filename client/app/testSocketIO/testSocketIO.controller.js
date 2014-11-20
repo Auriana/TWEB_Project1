@@ -59,6 +59,10 @@ angular.module('twebProject1App')
 				break;
 			}
 		}
+		
+		/*for(i in $scope.listeMsg){
+			$http.delete('/api/messages/' + i._id);
+		}*/
 	}
 	
 	//////////////////////
