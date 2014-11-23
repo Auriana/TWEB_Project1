@@ -11,13 +11,13 @@ div(ng-include='"components/navbar/navbar.html"')
         span#page_count
       .clearer
       canvas#the-canvas
+      h2 Audience live
       #chatDisplay
-        h2 Audience live
-        ul(ng-repeat='thing in listeMsg', ng-init='scroll()')
-          li
+        ul
+          li(ng-repeat='thing in listeMsg', ng-init='scroll()')
             {{thing.time}}
             | : {{thing.name}}  
-    .col-md-3.col-md-offset-1.color-bloc
+    .col-md-3.col-md-offset-1.color-bloc.big-top-margin
       h2 My requests
       button.btn.btn-default.btn-lg.black-button(type='button', value='slow_down', ng-click="slowBut()") Slow down
       button.btn.btn-default.btn-lg.black-button(type='button', value='louder', ng-click="loudBut()") Louder, please
@@ -26,6 +26,6 @@ div(ng-include='"components/navbar/navbar.html"')
       h2 My input
       form.thing-form
         p.input-group
-        input.form-control(type='text', placeholder='Enter your message', ng-model='inputChat')
+        input.form-control(type='textarea', placeholder='Enter your message', ng-model='inputChat')
         span.input-group-btn
-         button.btn.btn-default.btn-lg.black-button(type='submit', ng-click='send()') Send
+         button.btn.btn-default.btn-lg.black-button.btn-sub(type='submit', ng-click='send()') Send
