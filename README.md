@@ -1,25 +1,18 @@
 TWEB_Project1
 =============
+Building an application with AngularJS and MongoDB on Heroku.com
 
 Heroku : https://stormy-castle-5332.herokuapp.com/
 
-## To do for 03/11/14
+Anthony Roubaty & Auriana Hug.
 
-## Done (27/10/14)
-- Installed Bower/Grunt/AngularJs on Heroku (works on both computers)
-- Tested PDF.js on localhost (PrevNext example)
-- Added a new route on Heroku side.
-
-## To do for 27/10/14
-- Find a cool name for the application
-> Dimmi is the name.
-- Find a graphical chart (logo, colors, style)
-> OK.
-- Precise the mockups.
-> It misses some descriptions.
-- Define the Admin dashboard.
-- Define the requests.
-> I'm lost / Louder please / Slow down / Interesting
+## How to run our project
+Be sure to have installed NodeJS, Bower and Grunt.
+1. Clone the repo
+2. Run MongoDB (mongod.exe file)
+3. With another shell, at `TWEB_Project1` root and write: `grunt build`. It will build the project.
+4. Run the project with `grunt serve`.
+5. A new browser page will open at http://localhost:9000.
 
 ## Description
 This application let the user take part of a presentation, as the presenter of as a viewer.
