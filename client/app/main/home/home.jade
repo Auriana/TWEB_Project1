@@ -4,34 +4,35 @@ div(ng-include='"components/navbar/navbar.html"')
 		.col-md-6
 			h1 Presenter side
 			.col-md-12.color-bloc
-				form.presenter
-					h2 Prepare a new presentation
+				form.presenter(ng-controller="MainCtrl")
+					h2 Prepare a new presentation				
 					.form-group
 						label Title
-						input.form-control(type='text', placeholder='name', ng-model='name')
+						input.form-control(type='text', placeholder='Title', ng-model='newLecture_title')
 					.form-group
 						label Description
-						textarea.form-control(placeholder='Description', ng-model='desc')
+						textarea.form-control(placeholder='Description', ng-model='newLecture_descr')
 					.form-group
 						label PDF file
-						select(ng-model="pdfList", ng-options="item as item for item in pdfList")
-							option(value="")
+						input(type='file', ng-file-select='onFileSelect($files)', name='pdf_file' accept='application/pdf')
 					.form-group
 						.span-2
-							button.btn.btn-primary.black-button(type='submit', ng-click='startNewPresentation') Start
-
+							a.btn.btn-primary.black-button(href="/testSocketIO") Start
+							<!-- ne fonctionne pas : button.btn.btn-primary.black-button(type='submit', ng-click='startPresentation()') -->
 
 		.col-md-6
 			h1 Viewer side
 			.col-md-12.color-bloc
 				form.join
-					h2 Join presenter
+					h2 Join a presentation
 					.form-group
-						label Presenter	
-						input.form-control(type='text', placeholder='Presenter\'s name', ng-model='name')
+						label Title of the lecture	
+						input.form-control(type='text', placeholder='title', ng-model='')
 					.form-group
 						.span-2
-						button.btn.btn-primary.black-button(type='submit', ng-click='startNewPresentation') Join
+						<!-- ne fonctionne pas : button.btn.btn-primary.black-button(type='submit',  ng-click='joinPresentation()') Join -->
+						a.btn.btn-primary.black-button(href="/testPdf") Join
+						
 
 footer.footer
 	.container

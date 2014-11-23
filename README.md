@@ -4,15 +4,40 @@ Building an application with AngularJS and MongoDB on Heroku.com
 
 Heroku : https://stormy-castle-5332.herokuapp.com/
 
-Anthony Roubaty & Auriana Hug.
+Authors: Anthony Roubaty & Auriana Hug.
 
-## How to run our project
+## Current problems
+- Structure problem : we started with test pages (testPDF, testSOcketIO). The work sessions have gone very quickly, and we've built the rest above.
+- No notion of session-lecture.
+- File upload doesn't work.
+- No admin specifications implemented (just Angular login).
+
+## Specifications 
+### User
+- register & login (OK)
+### Presenter
+- prepare lecture (KO)
+- link PDF slides (KO)
+- give lecture (OK)
+- control slides (OK)
+- see feedback (KO)
+- submit poll (KO)
+### Viewer
+- join and attend lecture (KO)
+- asks questions (OK)
+- give feedback (KO)
+- answer poll (OK)
+### Admin
+- monitor system (KO)
+- consult admin dashboard (KO)
+
+## How to run this project
 Be sure to have installed NodeJS, Bower and Grunt.
-1. Clone the repo
-2. Run MongoDB (mongod.exe file)
-3. With another shell, at `TWEB_Project1` root and write: `grunt build`. It will build the project.
-4. Run the project with `grunt serve`.
-5. A new browser page will open at http://localhost:9000.
+- 1. Clone the repo
+- 2. Run MongoDB (mongod.exe file)
+- 3. With another shell, at `TWEB_Project1` root and write: `grunt build`. It will build the project.
+- 4. Run the project with `grunt serve`.
+- 5. A new browser page will open at http://localhost:9000.
 
 ## Description
 This application let the user take part of a presentation, as the presenter of as a viewer.
