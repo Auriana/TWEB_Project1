@@ -6,6 +6,8 @@ Heroku : https://stormy-castle-5332.herokuapp.com/
 
 Authors: Anthony Roubaty & Auriana Hug.
 
+*Attention*, the last commit on heroku makes curious things : we don't see the navbar anymore, and the PDF-chat functions don't seem to work anymore. Nevertheless, no error appear on the console. We gave up... (for the moment).
+
 ## Current problems
 - Structure problem : we started with test pages (testPDF, testSOcketIO). The work sessions have gone very quickly, and we've built the rest above.
 - No notion of session-lecture.
@@ -15,6 +17,7 @@ Authors: Anthony Roubaty & Auriana Hug.
 ## Specifications 
 ### User
 - register & login (OK)
+
 ### Presenter
 - prepare lecture (KO)
 - link PDF slides (KO)
@@ -22,11 +25,13 @@ Authors: Anthony Roubaty & Auriana Hug.
 - control slides (OK)
 - see feedback (KO)
 - submit poll (KO)
+
 ### Viewer
 - join and attend lecture (KO)
 - asks questions (OK)
 - give feedback (KO)
 - answer poll (OK)
+
 ### Admin
 - monitor system (KO)
 - consult admin dashboard (KO)
