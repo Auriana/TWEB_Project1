@@ -14,10 +14,10 @@ div(ng-include='"components/navbar/navbar.html"')
       #nav_slides
         button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onPrevPage()') Previous
         button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onNextPage()') Next
+      h2 Audience live
       #chatDisplay
-        h2 Audience live
-        ul(ng-repeat='thing in listeMsg', ng-init='scroll()')
-          li
+        ul
+          li(ng-repeat='thing in listeMsg', ng-init='scroll()')
             {{thing.time}}
             | : {{thing.name}}  
     .col-md-3.col-md-offset-1.color-bloc
