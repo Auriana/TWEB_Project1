@@ -4,7 +4,7 @@ div(ng-include='"components/navbar/navbar.html"')
 		.col-md-6
 			h1 Presenter side
 			.col-md-12.color-bloc
-				form.presenter(ng-controller="MainCtrl")
+				form.presenter(ng-controller="HomeCtrl")
 					h2 Prepare a new lecture				
 					.form-group
 						label Title
@@ -20,8 +20,7 @@ div(ng-include='"components/navbar/navbar.html"')
 						input(type='file', ng-file-select='onFileSelect($files)', name='pdf_file' accept='application/pdf')
 					.form-group
 						.span-2
-							a.btn.btn-primary.black-button(href="/presenterSide") Start
-							<!-- ne fonctionne pas : button.btn.btn-primary.black-button(type='submit', ng-click='startPresentation()') -->
+							button.btn.btn-primary.black-button(type='submit', ng-click='startPresentation()') Join
 
 		.col-md-6
 			h1 Viewer side
