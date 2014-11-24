@@ -20,7 +20,7 @@ div(ng-include='"components/navbar/navbar.html"')
 						input(type='file', ng-file-select='onFileSelect($files)', name='pdf_file' accept='application/pdf')
 					.form-group
 						.span-2
-							button.btn.btn-primary.black-button(type='submit', ng-click='startPresentation()') Join
+							button.btn.btn-primary.black-button(type='submit', ng-click='startPresentation()') Start
 
 		.col-md-6
 			h1 Viewer side
@@ -29,7 +29,7 @@ div(ng-include='"components/navbar/navbar.html"')
 					h2 Join a lecture
 					.form-group
 						label Password of the lecture	
-						input.form-control(type='text', placeholder='password', ng-model='')
+						input.form-control(type='text', placeholder='password of the lecture', ng-model='presentation.password')
 					.form-group
 						.span-2
 						<!-- ne fonctionne pas : button.btn.btn-primary.black-button(type='submit',  ng-click='joinPresentation()') Join -->
