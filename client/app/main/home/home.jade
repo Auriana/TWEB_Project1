@@ -5,13 +5,16 @@ div(ng-include='"components/navbar/navbar.html"')
 			h1 Presenter side
 			.col-md-12.color-bloc
 				form.presenter(ng-controller="MainCtrl")
-					h2 Prepare a new presentation				
+					h2 Prepare a new lecture				
 					.form-group
 						label Title
 						input.form-control(type='text', placeholder='Title', ng-model='newLecture_title')
 					.form-group
 						label Description
 						textarea.form-control(placeholder='Description', ng-model='newLecture_descr')
+					.form-group
+						label Password
+						input.form-control(type='text', placeholder='Password', ng-model='newLecture_pass')
 					.form-group
 						label PDF file
 						input(type='file', ng-file-select='onFileSelect($files)', name='pdf_file' accept='application/pdf')
@@ -24,10 +27,10 @@ div(ng-include='"components/navbar/navbar.html"')
 			h1 Viewer side
 			.col-md-12.color-bloc
 				form.join
-					h2 Join a presentation
+					h2 Join a lecture
 					.form-group
 						label Password of the lecture	
-						input.form-control(type='password', placeholder='password', ng-model='')
+						input.form-control(type='text', placeholder='password', ng-model='')
 					.form-group
 						.span-2
 						<!-- ne fonctionne pas : button.btn.btn-primary.black-button(type='submit',  ng-click='joinPresentation()') Join -->
