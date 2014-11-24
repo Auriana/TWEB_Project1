@@ -1,7 +1,8 @@
 'use strict';
+
 angular.module('twebProject1App')
-.controller('TestpdfCtrl', function ($scope, $http, socket) {
-	//presentation title
+  .controller('ViewersideCtrl', function ($scope, $http, socket) {
+    //presentation title
 	$scope.titlePresentation = "Test Presentation";
 	// Chat part
 	$scope.listeMsg = [];
@@ -90,9 +91,9 @@ angular.module('twebProject1App')
 		canvas = document.getElementById('the-canvas'),
 		ctx = canvas.getContext('2d');
 	/*
-* Get page info from document, resize canvas accordingly, and render page.
-* @param num Page number.
-*/
+	* Get page info from document, resize canvas accordingly, and render page.
+	* @param num Page number.
+	*/
 	function renderPage(num) {
 		pageRendering = true;
 		// Using promise to fetch the page
@@ -120,9 +121,9 @@ angular.module('twebProject1App')
 		document.getElementById('page_num').textContent = pageNum;
 	}
 	/*
-* If another page rendering in progress, waits until the rendering is
-* finised. Otherwise, executes rendering immediately.
-*/
+	* If another page rendering in progress, waits until the rendering is
+	* finised. Otherwise, executes rendering immediately.
+	*/
 	function queueRenderPage(num) {
 		if (pageRendering) {
 			pageNumPending = num;
@@ -131,8 +132,8 @@ angular.module('twebProject1App')
 		}
 	}
 	/**
-* Displays previous page.
-*/
+	* Displays previous page.
+	*/
 	$scope.onPrevPage = function () {
 		if (pageNum <= 1) {
 			return;
@@ -141,8 +142,8 @@ angular.module('twebProject1App')
 		queueRenderPage(pageNum);
 	}
 	/**
-* Displays next page.
-*/
+	* Displays next page.
+	*/
 	$scope.onNextPage = function () {
 		if (pageNum >= pdfDoc.numPages) {
 			return;
@@ -151,12 +152,12 @@ angular.module('twebProject1App')
 		queueRenderPage(pageNum);
 	}
 	/**
-* Asynchronously downloads PDF.
-*/
+	* Asynchronously downloads PDF.
+	*/
 	PDFJS.getDocument(url).then(function (pdfDoc_) {
 		pdfDoc = pdfDoc_;
 		document.getElementById('page_count').textContent = pdfDoc.numPages;
 		// Initial/first page rendering
 		renderPage(pageNum);
 	});
-});
+  });

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('twebProject1App')
-  .controller('TestsocketioCtrl', function ($scope, $http, socket) {	
-  
+  .controller('PresentersideCtrl', function ($scope, $http, socket) {
+    
 	$scope.listeMsg = [];
 	$scope.date = new Date();
 	

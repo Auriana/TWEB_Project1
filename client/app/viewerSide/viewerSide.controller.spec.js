@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: TestpdfCtrl', function () {
+describe('Controller: ViewersideCtrl', function () {
 
   // load the controller's module
   beforeEach(module('twebProject1App'));
 
-  var TestpdfCtrl, scope;
+  var ViewersideCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    TestpdfCtrl = $controller('TestpdfCtrl', {
+    ViewersideCtrl = $controller('ViewersideCtrl', {
       $scope: scope
     });
   }));
