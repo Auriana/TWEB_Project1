@@ -7,7 +7,9 @@ Heroku : https://dimmi-tweb.herokuapp.com/
 Authors: Anthony Roubaty & Auriana Hug.
 
 ## Current problems
-- Structure problem : we started with test pages (testPDF, testSOcketIO). The work sessions have gone very quickly, and we've built the rest above.
+- OK: Structure problem : we started with test pages (testPDF, testSOcketIO). The work sessions have gone very quickly, and we've built the rest above.
+- Heroku commit
+- First page PDF appears curiously.
 - No notion of session-lecture.
 - File upload doesn't work.
 - No admin specifications implemented (just Angular login).
@@ -22,13 +24,13 @@ Authors: Anthony Roubaty & Auriana Hug.
 - give lecture (OK)
 - control slides (OK)
 - see feedback (KO) - create link to feedback page => think about the feedback page
-- submit poll (KO) 
+- submit poll (KO) - requests (?)
 
 ### Viewer
 - join and attend lecture (KO) - enter the password of the lecture
-- asks questions (OK) 
-- give feedback (KO) - create link to add a final comment.
-- answer poll (OK) 
+- asks questions (OK) - chat
+- give feedback (OK) - chat + requests
+- answer poll (OK) - requests
 
 ### Admin (?)
 - monitor system (KO)

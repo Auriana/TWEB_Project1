@@ -8,7 +8,8 @@ var MessageSchema = new Schema({
   info: String,
   time: String,
   type: String,
-  active: Boolean
+  active: Boolean,
+  presentationId: Object
 });
 
 module.exports = mongoose.model('Message', MessageSchema);
