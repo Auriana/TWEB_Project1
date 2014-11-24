@@ -13,6 +13,9 @@ exports.register = function(socket) {
   Message.schema.post('remove', function (doc) {
     onRemove(socket, doc);
   });
+  socket.on('msgBroadcast', function (data) {
+    socket.broadcast.emit('msgBroadcast',data);
+  });
 }
 
 function onSave(socket, doc, cb) {
