@@ -2,7 +2,7 @@ TWEB_Project1
 =============
 Building an application with AngularJS and MongoDB on Heroku.com
 
-Heroku : https://stormy-castle-5332.herokuapp.com/
+Heroku : https://dimmi-tweb.herokuapp.com/
 
 Authors: Anthony Roubaty & Auriana Hug.
 
