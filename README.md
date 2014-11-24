@@ -6,8 +6,6 @@ Heroku : https://dimmi-tweb.herokuapp.com/
 
 Authors: Anthony Roubaty & Auriana Hug.
 
-*Attention*, the last commit on heroku makes curious things : we don't see the navbar anymore, and the PDF-chat functions don't seem to work anymore. Nevertheless, no error appear on the console. We gave up... (for the moment).
-
 ## Current problems
 - Structure problem : we started with test pages (testPDF, testSOcketIO). The work sessions have gone very quickly, and we've built the rest above.
 - No notion of session-lecture.
@@ -19,20 +17,20 @@ Authors: Anthony Roubaty & Auriana Hug.
 - register & login (OK)
 
 ### Presenter
-- prepare lecture (KO)
-- link PDF slides (KO)
+- prepare lecture (KO) - complete the creation, insert in DB
+- link PDF slides (KO) - static, need to be dynamic
 - give lecture (OK)
 - control slides (OK)
-- see feedback (KO)
-- submit poll (KO)
+- see feedback (KO) - create link to feedback page => think about the feedback page
+- submit poll (KO) 
 
 ### Viewer
-- join and attend lecture (KO)
-- asks questions (OK)
-- give feedback (KO)
-- answer poll (OK)
+- join and attend lecture (KO) - enter the password of the lecture
+- asks questions (OK) 
+- give feedback (KO) - create link to add a final comment.
+- answer poll (OK) 
 
-### Admin
+### Admin (?)
 - monitor system (KO)
 - consult admin dashboard (KO)
 
@@ -63,9 +61,6 @@ In the second case, he selects the user who will present, then the title of the 
 - Home page (after logging)
 - For the presenter :
 	- Presenter screen (slides, requests and chat).
-	- Only slides for the projector
+	- Only slides for the projector (?)
 - Viewer screen (slides, requests, stats and chat).
 - Presentation summary for past presentations : title, PDF file, description, date and stats (requests).
-- Admin dashboard.
-
-
