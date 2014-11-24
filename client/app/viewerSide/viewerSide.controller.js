@@ -16,14 +16,20 @@ angular.module('twebProject1App')
 	$scope.date = new Date();
 	
 	$http.get('/api/messages').success(function(listeMsg) {
-		for(msg in listeMsg){
-			if(msg._id === $scope.presentationId){
-				$scope.listeMsg.push(msg);
+		$scope.listeMsg = listeMsg;
+		
+		for(var i = 0; i < $scope.listeMsg.length ; i ++){
+			if($scope.listeMsg[i].presentationId != $scope.presentationId){
+				$scope.listeMsg.splice(i, 1);
 			}
 		}
 		
 		socket.syncUpdates('message', $scope.listeMsg, function(event, item, array){
-			//Modification des msg
+			for(var i = 0; i < array.length ; i ++){
+				if(array[i].presentationId != $scope.presentationId){
+					array.splice(i, 1);
+				}
+			}
 		});
     });
 	
@@ -58,25 +64,30 @@ angular.module('twebProject1App')
 	$scope.slowBut = function(){
 		$scope.date = new Date();
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
-		$http.post('/api/messages', { name: "Slow down!" , time : $scope.formedDate, type : "slow"});
+		$http.post('/api/messages', { 
+			name: "Slow down!" , 
+			time : $scope.formedDate, 
+			type : "slow",
+			presentationId : $scope.presentationId
+		});
 	}
 	
 	$scope.loudBut = function(){
 		$scope.date = new Date();
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
-		$http.post('/api/messages', { name: "Louder, please!" , time : $scope.formedDate, type : "loud"});
+		$http.post('/api/messages', { name: "Louder, please!" , time : $scope.formedDate, type : "loud", presentationId : $scope.presentationId});
 	}
 	
 	$scope.lostBut = function(){
 		$scope.date = new Date();
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
-		$http.post('/api/messages', { name: "I'm lost !" , time : $scope.formedDate, type : "lost"});
+		$http.post('/api/messages', { name: "I'm lost !" , time : $scope.formedDate, type : "lost", presentationId : $scope.presentationId});
 	}
 	
 	$scope.inteBut = function(){
 		$scope.date = new Date();
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
-		$http.post('/api/messages', { name: "Interesting..." , time : $scope.formedDate, type : "interesting"});
+		$http.post('/api/messages', { name: "Interesting..." , time : $scope.formedDate, type : "interesting", presentationId : $scope.presentationId});
 	}
 	
 	//synchronisation des pages du PDF
