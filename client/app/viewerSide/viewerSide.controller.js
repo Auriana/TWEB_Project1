@@ -1,25 +1,49 @@
 'use strict';
 
 angular.module('twebProject1App')
-  .controller('ViewersideCtrl', function ($scope, $http, socket) {
-    //presentation title
-	$scope.titlePresentation = "Test Presentation";
+  .controller('ViewersideCtrl', function ($scope, $http, socket, $location) {
+  
+	//pour récupère le GET de presenterSide?presentationId=XXX
+	$scope.presentationId = $location.search().presentationId;
+	$scope.titlePresentation = 'Fail to load';
+	
+	$http.get('/api/presentations/' + $scope.presentationId).success(function(pres){
+		$scope.titlePresentation = pres.title;
+	});
+	
 	// Chat part
 	$scope.listeMsg = [];
 	$scope.date = new Date();
 	
 	$http.get('/api/messages').success(function(listeMsg) {
-		$scope.listeMsg = listeMsg;
-		socket.syncUpdates('message', $scope.listeMsg);
-	});
+		for(msg in listeMsg){
+			if(msg._id === $scope.presentationId){
+				$scope.listeMsg.push(msg);
+			}
+		}
+		
+		socket.syncUpdates('message', $scope.listeMsg, function(event, item, array){
+			//Modification des msg
+		});
+    });
 	
 	$scope.send = function() {
 		if($scope.inputChat === '') {
 			return;
 		}
 		$scope.date = new Date();
+		
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
-		$http.post('/api/messages', { name: $scope.inputChat , time : $scope.formedDate, type : "message"});
+		
+		$http.post('/api/messages', { 
+			name: $scope.inputChat , 
+			info : "info",
+			time : $scope.formedDate, 
+			type : "message",
+			active : true,
+			presentationId : $scope.presentationId
+		});
+		
 		$scope.inputChat = '';
 	};
 	

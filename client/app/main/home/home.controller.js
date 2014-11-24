@@ -55,6 +55,7 @@ angular.module('twebProject1App')
           page: 1,
           password: $scope.newLecture_pass
         }).success(function(data, status, headers, confi){
+			
 			$window.location = '/presenterSide?presentationId=' + data._id;
 		});
 	};

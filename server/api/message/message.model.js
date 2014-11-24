@@ -9,7 +9,7 @@ var MessageSchema = new Schema({
   time: String,
   type: String,
   active: Boolean,
-  presentationId: Object
+  presentationId: String
 });
 
 module.exports = mongoose.model('Message', MessageSchema);

@@ -1,11 +1,16 @@
 'use strict';
 
 angular.module('twebProject1App')
-  .controller('PresentersideCtrl', function ($scope, $http, socket) {
+  .controller('PresentersideCtrl', function ($scope, $http, socket, $location) {
     
-	//TODO
 	//pour récupère le GET de presenterSide?presentationId=XXX
-	//$scope.presentationId = $location.search().presentationId;
+	$scope.presentationId = $location.search().presentationId;
+	$scope.titlePresentation = 'Fail to load';
+	
+	$http.get('/api/presentations/' + $scope.presentationId).success(function(pres){
+		$scope.titlePresentation = pres.title;
+	});
+	
 	
 	$scope.listeMsg = [];
 	$scope.date = new Date();
@@ -16,10 +21,15 @@ angular.module('twebProject1App')
 	$scope.nbInte = 0;
   
 	$http.get('/api/messages').success(function(listeMsg) {
-		$scope.listeMsg = listeMsg;
+		for(msg in listeMsg){
+			if(msg._id === $scope.presentationId){
+				$scope.listeMsg.push(msg);
+			}
+		}
+		
 		socket.syncUpdates('message', $scope.listeMsg, function(event, item, array){
-			//TODO
 			//Modification des msg
+			
 		});
     });
 	
@@ -35,7 +45,7 @@ angular.module('twebProject1App')
 			case "slow":
 				$scope.nbSlow++;
 				break;
-				
+
 			case "lost":
 				$scope.nbLost++;
 				break;
@@ -49,10 +59,6 @@ angular.module('twebProject1App')
 				break;
 			}
 		}
-		
-		/*for(i in $scope.listeMsg){
-			$http.delete('/api/messages/' + i._id);
-		}*/
 	}
 	
 	//////////////////////
@@ -60,9 +66,7 @@ angular.module('twebProject1App')
 	// If absolute URL from the remote server is provided, configure the CORS
 	// header on that server.
 	//
-
 	var url = './data/WebInfra.pdf';	
-
 
 	//
 	// Fetch the PDF document from the URL using promises
