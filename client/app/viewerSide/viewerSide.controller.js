@@ -7,10 +7,12 @@ angular.module('twebProject1App')
 	// Chat part
 	$scope.listeMsg = [];
 	$scope.date = new Date();
+	
 	$http.get('/api/messages').success(function(listeMsg) {
 		$scope.listeMsg = listeMsg;
 		socket.syncUpdates('message', $scope.listeMsg);
 	});
+	
 	$scope.send = function() {
 		if($scope.inputChat === '') {
 			return;
@@ -20,9 +22,11 @@ angular.module('twebProject1App')
 		$http.post('/api/messages', { name: $scope.inputChat , time : $scope.formedDate, type : "message"});
 		$scope.inputChat = '';
 	};
-	$scope.$on('$destroy', function () {
+	
+	/*$scope.$on('$destroy', function () {
 		socket.unsyncUpdates('message');
-	});
+	});*/
+	
 	$scope.scroll = function(){
 		document.getElementById('chatDisplay').scrollTop = 99999;
 	}
@@ -32,21 +36,25 @@ angular.module('twebProject1App')
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
 		$http.post('/api/messages', { name: "Slow down!" , time : $scope.formedDate, type : "slow"});
 	}
+	
 	$scope.loudBut = function(){
 		$scope.date = new Date();
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
 		$http.post('/api/messages', { name: "Louder, please!" , time : $scope.formedDate, type : "loud"});
 	}
+	
 	$scope.lostBut = function(){
 		$scope.date = new Date();
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
 		$http.post('/api/messages', { name: "I'm lost !" , time : $scope.formedDate, type : "lost"});
 	}
+	
 	$scope.inteBut = function(){
 		$scope.date = new Date();
 		$scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
 		$http.post('/api/messages', { name: "Interesting..." , time : $scope.formedDate, type : "interesting"});
 	}
+	
 	//synchronisation des pages du PDF
 	socket.socket.on('pageNumber', function(num) {
 		queueRenderPage(num);

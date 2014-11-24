@@ -3,6 +3,9 @@
 angular.module('twebProject1App')
   .controller('PresentersideCtrl', function ($scope, $http, socket) {
     
+	//pour récupère le GET de presenterSide?presentationId=XXX
+	//$scope.presentationId = $location.search().presentationId;
+	
 	$scope.listeMsg = [];
 	$scope.date = new Date();
 	
@@ -29,9 +32,9 @@ angular.module('twebProject1App')
 	  
     };
 	
-	$scope.$on('$destroy', function () {
+	/*$scope.$on('$destroy', function () {
       socket.unsyncUpdates('message');
-    });	
+    });	*/
 	
 	$scope.scroll = function(type){
 		document.getElementById('chatDisplay').scrollTop = 99999;
