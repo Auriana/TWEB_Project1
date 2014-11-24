@@ -2,32 +2,36 @@ TWEB_Project1
 =============
 Building an application with AngularJS and MongoDB on Heroku.com
 
-Heroku : https://dimmi-tweb.herokuapp.com/
+Heroku : https://dimmi-tweb.herokuapp.com
 
 Authors: Anthony Roubaty & Auriana Hug.
 
+## To do
+- solve heroku problems.
+- solve first pdf page.
+- manage timestamp of message "request" for feedback
+- improve design for a more practical use.
+
 ## Current problems
-- OK: Structure problem : we started with test pages (testPDF, testSOcketIO). The work sessions have gone very quickly, and we've built the rest above.
-- Heroku commit
+- Heroku commit. Miss many things (CSS, etc.)
 - First page PDF appears curiously.
-- No notion of session-lecture.
-- File upload doesn't work.
-- No admin specifications implemented (just Angular login).
+- File upload doesn't work locally.
+- No PDF file is linked to the session.
 
 ## Specifications 
 ### User
 - register & login (OK)
 
 ### Presenter
-- prepare lecture (KO) - complete the creation, insert in DB
-- link PDF slides (KO) - static, need to be dynamic
+- prepare lecture (OK)
+- link PDF slides (KO!) - static, need to be dynamic
 - give lecture (OK)
 - control slides (OK)
 - see feedback (KO) - create link to feedback page => think about the feedback page
-- submit poll (KO) - requests (?)
+- submit poll (?) - requests
 
 ### Viewer
-- join and attend lecture (KO) - enter the password of the lecture
+- join and attend lecture (~OK) - enter the password of the lecture
 - asks questions (OK) - chat
 - give feedback (OK) - chat + requests
 - answer poll (OK) - requests
