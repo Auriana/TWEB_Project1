@@ -44,7 +44,8 @@ angular.module('twebProject1App')
         time: $scope.formedDate,
         type: "message",
         active: true,
-        presentationId: $scope.presentationId
+        presentationId: $scope.presentationId,
+        numSlide: pageNum + ""
       });
 
       $scope.inputChat = '';

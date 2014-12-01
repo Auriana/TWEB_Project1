@@ -11,7 +11,7 @@ Authors: Anthony Roubaty & Auriana Hug.
 - 2) the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
 - 3) fix and solve heroku problems.
 - 4) solve first pdf page problem.
-- 5) for feedback: manage timestamp of message "request" and current number of slides, etc.
+DONE - 5) for feedback: manage timestamp of message "request" and current number of slides, etc.
 - 6) prepare the scenario of our demo (must have/nice to have).
 - 7) create the landing page.
 - 8) modify the Change Password page (parameters).
