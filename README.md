@@ -7,15 +7,15 @@ Heroku : https://dimmi-tweb.herokuapp.com
 Authors: Anthony Roubaty & Auriana Hug.
 
 ## To do
-- 1) solve PDF upload.
-- 2) the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
-- 3) fix and solve heroku problems.
-- 4) solve first pdf page problem.
-DONE - 5) for feedback: manage timestamp of message "request" and current number of slides, etc.
-- 6) prepare the scenario of our demo (must have/nice to have).
-- 7) create the landing page.
-- 8) modify the Change Password page (parameters).
-- 9) improve design for a more practical use.
+- 1) AN - solve PDF upload.
+- 2) AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
+- 3) ? - fix and solve heroku problems.
+- 4) AU - solve first pdf page problem => SOLUTION: delete the insertion of the controller (not both viewer and presenter).
+- 5) DONE - for feedback: manage timestamp of message "request" and current number of slides, etc.
+- 6) DONE - prepare the scenario of our demo (must have/nice to have).
+- 7) AU - create the landing page // Be sure about the choosen template.
+- 8) AU - modify the Change Password page (parameters).
+- 9) AU - improve design for a more practical use.
 - 10) create the analytics page.
 - 11) confirm the password.
 - 12) create the list of Archive under the blocks.
@@ -69,6 +69,9 @@ DONE - 5) for feedback: manage timestamp of message "request" and current number
 ### Admin (?)
 - monitor system (KO)
 - consult admin dashboard (KO)
+
+### Coming soon
+- submit poll
 
 ## How to run this project
 Be sure to have installed NodeJS, Bower and Grunt.
