@@ -8,19 +8,45 @@ Authors: Anthony Roubaty & Auriana Hug.
 
 ## To do
 - 1) solve PDF upload.
-- 2) gix and solve heroku problems.
-- 3) solve first pdf page problem.
-- 4) for feddback: manage timestamp of message "request" and current number of slides, etc.
-- 5) prepare the scenario of our demo (must have/nice to have).
-- 6) create the landing page.
-- 7) improve design for a more practical use.
-- 8) create the analytics page.
+- 2) the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
+- 3) fix and solve heroku problems.
+- 4) solve first pdf page problem.
+- 5) for feedback: manage timestamp of message "request" and current number of slides, etc.
+- 6) prepare the scenario of our demo (must have/nice to have).
+- 7) create the landing page.
+- 8) modify the Change Password page (parameters).
+- 9) improve design for a more practical use.
+- 10) create the analytics page.
+- 11) confirm the password.
+- 12) create the list of Archive under the blocks.
+- 13) before quit the lecture, ask if sure (both sides).
+- 14) notifications of questions.
+- 15) duplicate presenter screen.
 
 ## Current problems
 - Heroku commit. Miss many things (CSS, etc.)
 - First page PDF appears curiously.
 - File upload doesn't work locally.
+- The viewer can't correctly join the lecture.
 - No PDF file is linked to the session.
+
+## Scenario of the demo
+- 1) Land on the home page (landing page)
+- 2) Quickly go through it.
+- 3) Come back to the logging section and create an account.
+- 4) Prepare a lecture (title, description, upload and password).
+- 5) Start the lecture. Describe the page and its components.
+- 6) With another account, log in.
+- 7) Enter the password. Confirm the lecture.
+- 8) Land on the viewer side. Describe the differences.
+- 9) Presenter: go through  sides.
+- 10) Viewer: see that the slides change.
+- 11) Viewer: write a question. And say "So down".
+- 12) Presenter: see the question and the request.
+- 13) Viewer and Presenter: quit the lecture.
+- 14) Viewer: log out.
+- 15) Presenter: see his archives and click on one old lecture.
+- 16) Land on the analytics page. Describe it.
 
 ## Specifications 
 ### User
