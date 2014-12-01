@@ -2,7 +2,7 @@ div(ng-include='"components/navbar/navbar.html"')
 .container
   .row
     .col-md-7
-      h1.page-header {{titlePresentation}}
+      h1.page-header {{titlePresentation}}  
       #no_pages
         span
         | Page:
@@ -19,10 +19,10 @@ div(ng-include='"components/navbar/navbar.html"')
         ul
           li(ng-repeat='thing in listeMsg', ng-init='scroll()')
             {{thing.time}}
-            | : {{thing.name}}
+            | : {{thing.name}}  
     .col-md-3.col-md-offset-1.color-bloc
-      h2 Audience requests
-      p.btn-lg.black-button {{nbSlow}} Slow down
+      h2.no-margin Audience requests
+      p.btn-lg.black-button {{nbSlow}} Slow down 
       p.btn-lg.black-button {{nbLoud}} Louder, please
       p.btn-lg.black-button {{nbLost}} I'm lost
       p.btn-lg.black-button {{nbInte}} Interesting
