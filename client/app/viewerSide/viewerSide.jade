@@ -2,7 +2,7 @@ div(ng-include='"components/navbar/navbar.html"')
 .container
   .row
     .col-md-7
-      h1.page-header {{titlePresentation}}  
+      h1.page-header {{titlePresentation}}
       #no_pages
         span
         | Page:
@@ -15,17 +15,17 @@ div(ng-include='"components/navbar/navbar.html"')
       #chatDisplay
         ul
           li(ng-repeat='thing in listeMsg', ng-init='scroll()')
-            {{thing.time}}
-            | : {{thing.name}}  
-    .col-md-3.col-md-offset-1.color-bloc.big-top-margin
-      h2.no-margin My requests
-      button.btn.btn-default.btn-lg.black-button(type='button', value='slow_down', ng-click="slowBut()") Slow down
-      button.btn.btn-default.btn-lg.black-button(type='button', value='louder', ng-click="loudBut()") Louder, please
-      button.btn.btn-default.btn-lg.black-button(type='button', value='lost', ng-click="lostBut()") I'm lost
-      button.btn.btn-default.btn-lg.black-button(type='button', value='interesting', ng-click="inteBut()") Interesting
-      h2 My input
-      form.thing-form
-        p.input-group
-        input.form-control(type='textarea', placeholder='Enter your message', ng-model='inputChat')
-        span.input-group-btn
-         button.btn.btn-default.btn-lg.black-button.btn-sub(type='submit', ng-click='send()') Send
+          {{thing.time}}
+  | : {{thing.name}}
+.col-md-3.col-md-offset-1.color-bloc.big-top-margin
+  h2.no-margin My requests
+  button.btn.btn-default.btn-lg.black-button(type='button', value='slow_down', ng-click="slowBut()") Slow down
+  button.btn.btn-default.btn-lg.black-button(type='button', value='louder', ng-click="loudBut()") Louder, please
+  button.btn.btn-default.btn-lg.black-button(type='button', value='lost', ng-click="lostBut()") I'm lost
+  button.btn.btn-default.btn-lg.black-button(type='button', value='interesting', ng-click="inteBut()") Interesting
+  h2 My input
+  form.thing-form
+    p.input-group
+    input.form-control(type='textarea', placeholder='Enter your message', ng-model='inputChat')
+    span.input-group-btn
+      button.btn.btn-default.btn-lg.black-button.btn-sub(type='submit', ng-click='send()') Send

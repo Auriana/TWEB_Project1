@@ -7,8 +7,8 @@ describe('Controller: MainCtrl', function () {
   beforeEach(module('socketMock'));
 
   var MainCtrl,
-      scope,
-      $httpBackend;
+    scope,
+    $httpBackend;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function (_$httpBackend_, $controller, $rootScope) {
