@@ -20,20 +20,17 @@ angular.module('twebProject1App')
     $scope.nbInte = 0;
 
     $http.get('/api/messages').success(function (listeMsg) {
-      $scope.listeMsg = listeMsg;
-
-      for (var i = 0; i < $scope.listeMsg.length; i++) {
-        if ($scope.listeMsg[i].presentationId != $scope.presentationId) {
-          $scope.listeMsg.splice(i, 1);
+      for (var i = 0; i < listeMsg.length; i++){
+        if(listeMsg[i].presentationId == $scope.presentationId){
+          $scope.listeMsg.push(listeMsg[i]);
         }
       }
-
       socket.syncUpdates('message', $scope.listeMsg, function (event, item, array) {
-        for (var i = 0; i < array.length; i++) {
-          if (array[i].presentationId != $scope.presentationId) {
-            array.splice(i, 1);
-          }
+        if (item.presentationId != $scope.presentationId) {
+          //array.push(item);
+          $scope.listeMsg.pop();
         }
+
       });
     });
 

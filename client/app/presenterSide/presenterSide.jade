@@ -18,8 +18,8 @@ div(ng-include='"components/navbar/navbar.html"')
       #chatDisplay
         ul
           li(ng-repeat='thing in listeMsg', ng-init='scroll()')
-          {{thing.time}}
-  | : {{thing.name}}
+            {{thing.time}}
+            | : {{thing.name}} : {{thing.presentationId}}
 .col-md-3.col-md-offset-1.color-bloc
   h2.no-margin Audience requests
   p.btn-lg.black-button {{nbSlow}} Slow down
