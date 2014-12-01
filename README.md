@@ -7,10 +7,14 @@ Heroku : https://dimmi-tweb.herokuapp.com
 Authors: Anthony Roubaty & Auriana Hug.
 
 ## To do
-- solve heroku problems.
-- solve first pdf page.
-- manage timestamp of message "request" for feedback
-- improve design for a more practical use.
+- 1) solve PDF upload.
+- 2) gix and solve heroku problems.
+- 3) solve first pdf page problem.
+- 4) for feddback: manage timestamp of message "request" and current number of slides, etc.
+- 5) prepare the scenario of our demo (must have/nice to have).
+- 6) create the landing page.
+- 7) improve design for a more practical use.
+- 8) create the analytics page.
 
 ## Current problems
 - Heroku commit. Miss many things (CSS, etc.)
