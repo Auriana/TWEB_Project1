@@ -10,10 +10,10 @@ Authors: Anthony Roubaty & Auriana Hug.
 - 1) AN - solve PDF upload.
 - 2) AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
 - 3) ? - fix and solve heroku problems.
-- 4) AU - solve first pdf page problem => SOLUTION: delete the insertion of the controller (not both viewer and presenter).
+- 4) DONE - solve first pdf page problem => SOLUTION: delete the insertion of the controller (not both viewer and presenter).
 - 5) DONE - for feedback: manage timestamp of message "request" and current number of slides, etc.
 - 6) DONE - prepare the scenario of our demo (must have/nice to have).
-- 7) AU - create the landing page // Be sure about the choosen template.
+- 7) DONE - create the landing page // To be continued.
 - 8) AU - modify the Change Password page (parameters).
 - 9) AU - improve design for a more practical use.
 - 10) create the analytics page.
@@ -25,7 +25,6 @@ Authors: Anthony Roubaty & Auriana Hug.
 
 ## Current problems
 - Heroku commit. Miss many things (CSS, etc.)
-- First page PDF appears curiously.
 - File upload doesn't work locally.
 - The viewer can't correctly join the lecture.
 - No PDF file is linked to the session.

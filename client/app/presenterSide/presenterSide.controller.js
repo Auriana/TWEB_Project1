@@ -87,11 +87,12 @@ angular.module('twebProject1App')
         //
         // Render PDF page into canvas context
         //
-        var renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        page.render(renderContext);
+		//        var renderContext = {
+		//          canvasContext: context,
+		//          viewport: viewport
+		//        };
+		//        page.render(renderContext);
+		renderPage(1);  
       });
     });
 

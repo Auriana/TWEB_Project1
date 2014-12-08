@@ -1,0 +1,33 @@
+div.navbar.navbar-fixed-top.dimmi(ng-controller='NavbarCtrl')
+  div.container
+    div.navbar-header
+      button.navbar-toggle(type='button', ng-click='isCollapsed = !isCollapsed')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a(href='/')
+        img(src='assets/images/logo_Dimmi.png', alt='BOOM')
+
+    div#navbar-main.navbar-collapse.collapse(collapse='isCollapsed')
+      ul.nav.navbar-nav
+
+        li(ng-show='isAdmin()', ng-class='{active: isActive("/admin")}')
+          a(id="admin-link", href='/admin') Admin
+
+      ul.nav.navbar-nav.navbar-right.color-bloc-log
+        li(ng-hide='isLoggedIn()', ng-class='{active: isActive("/signup")}')
+          a(href='/signup') Not yet a member ?
+
+        li(ng-hide='isLoggedIn()', ng-class='{active: isActive("/login")}')
+          a(href='/login') Or just log in
+
+        li(ng-show='isLoggedIn()')
+          p.navbar-text.dimmi-log {{ getCurrentUser().name }}
+
+        li(ng-show='isLoggedIn()', ng-class='{active: isActive("/settings")}')
+          a(href='/settings')
+            span.glyphicon.glyphicon-cog
+
+        li(ng-show='isLoggedIn()', ng-class='{active: isActive("/logout")}')
+          a(href='', ng-click='logout()') Logout
