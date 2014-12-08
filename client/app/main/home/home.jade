@@ -20,7 +20,7 @@ div(ng-include='"components/navbar/navbar.html"')
             input(type='file', ng-file-select='onFileSelect($files)', name='pdf_file' accept='application/pdf')
           .form-group
             .span-2
-              button.btn.btn-primary.black-button(type='submit', ng-click='startPresentation()') Start
+              button.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='startPresentation()') Start
 
     .col-md-6
       h1 Viewer side
@@ -33,7 +33,7 @@ div(ng-include='"components/navbar/navbar.html"')
           .form-group
             .span-2
             <!-- ne fonctionne pas : button.btn.btn-primary.black-button(type='submit',  ng-click='joinPresentation()') Join -->
-            a.btn.btn-primary.black-button(href="/viewerSide") Join
+            a.btn.btn-primary.btn-login.black-button.btn-sub(href="/viewerSide") Join
 
 
 footer.footer

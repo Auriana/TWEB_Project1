@@ -10,11 +10,11 @@ Authors: Anthony Roubaty & Auriana Hug.
 - 1) AN - solve PDF upload.
 - 2) AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
 - 3) ? - fix and solve heroku problems.
-- 4) DONE - solve first pdf page problem => SOLUTION: delete the insertion of the controller (not both viewer and presenter).
+- 4) DONE - solve first pdf page problem
 - 5) DONE - for feedback: manage timestamp of message "request" and current number of slides, etc.
 - 6) DONE - prepare the scenario of our demo (must have/nice to have).
 - 7) DONE - create the landing page // To be continued.
-- 8) AU - modify the Change Password page (parameters).
+- 8) DONE - modify the Change Password page.
 - 9) AU - improve design for a more practical use.
 - 10) create the analytics page.
 - 11) confirm the password.
