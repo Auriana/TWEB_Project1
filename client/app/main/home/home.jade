@@ -17,7 +17,7 @@ div(ng-include='"components/navbar/navbar.html"')
             input.form-control(type='text', placeholder='Password', ng-model='newLecture_pass')
           .form-group
             label PDF file
-            input(type='file', ng-file-select='onFileSelect($files)', name='pdf_file' accept='application/pdf')
+            input(type='file', ng-file-select='onFileSelect($files)', name='file')
           .form-group
             .span-2
               button.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='startPresentation()') Start

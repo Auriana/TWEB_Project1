@@ -4,6 +4,29 @@ angular.module('twebProject1App')
   .controller('HomeCtrl', function ($scope, $http, socket, Auth, $window) {
     $scope.awesomeThings = [];
 
+    $scope.creds = {
+      bucket: 'dimmi-tweb',
+      access_key: 'AKIAJ6DFWIEZSSECWXDQ',
+      secret_key: 'HT6uqEvblindqgJDbmEICc'
+    }
+
+
+    var isFileSelected = false;
+
+    //selecting the file to upload
+    $scope.onFileSelect = function ($files) {
+      alert("efoidsjfoidsjods");
+      if ($files != undefined) {
+        $scope.selectedFile = $files[0]
+        if ($scope.selectedFile.type !== 'application/pdf') {
+          alert('Please chose a pdf file !');
+          return;
+        }
+
+        isFileSelected = true;
+      }
+    };
+
     //Create lesson
     $scope.startPresentation = function () {
       /*if ((typeof $scope.newLecture_title != 'undefined' ) || ($scope.newLecture_title === '')) {
@@ -21,7 +44,36 @@ angular.module('twebProject1App')
        return;
        }*/
 
-      alert("test");
+      AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
+      AWS.config.region = 'eu-west-1';
+      var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
+
+      if(isFileSelected) {
+        var params = { Key: $scope.file.name, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
+
+        bucket.putObject(params, function(err, data) {
+          if(err) {
+            // There Was An Error With Your S3 Config
+            alert(err.message);
+            return false;
+          }
+          else {
+            // Success!
+            alert('Upload Done');
+          }
+        })
+          .on('httpUploadProgress',function(progress) {
+            // Log Progress Information
+            console.log(Math.round(progress.loaded / progress.total * 100) + '% done');
+          });
+      }
+      else {
+        // No File Selected
+        alert('No File Selected');
+      }
+
+
+
 
       $http.post('/api/presentations', {
         title: $scope.newLecture_title,
