@@ -5,9 +5,9 @@ angular.module('twebProject1App')
     $scope.awesomeThings = [];
 
     $scope.creds = {
-      bucket: 'dimmi-tweb',
-      access_key: 'AKIAJ6DFWIEZSSECWXDQ',
-      secret_key: 'HT6uqEvblindqgJDbmEICc'
+      bucket: 'frankfurt-bucket-tweb',
+      access_key: 'AKIAIOAZDTCXKH2V52QA',
+      secret_key: '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'
     }
 
 
@@ -45,11 +45,10 @@ angular.module('twebProject1App')
        }*/
 
       AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
-      AWS.config.region = 'eu-west-1';
+      AWS.config.region = 'eu-central-1';
       var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
-
       if(isFileSelected) {
-        var params = { Key: $scope.file.name, ContentType: $scope.file.type, Body: $scope.file, ServerSideEncryption: 'AES256' };
+        var params = { Key: $scope.selectedFile.name, ContentType: $scope.selectedFile.type, Body: $scope.selectedFile, ServerSideEncryption: 'AES256' };
 
         bucket.putObject(params, function(err, data) {
           if(err) {
@@ -60,6 +59,7 @@ angular.module('twebProject1App')
           else {
             // Success!
             alert('Upload Done');
+            $window.location = '/presenterSide?presentationId=' + data._id;
           }
         })
           .on('httpUploadProgress',function(progress) {
@@ -74,7 +74,7 @@ angular.module('twebProject1App')
 
 
 
-
+/*
       $http.post('/api/presentations', {
         title: $scope.newLecture_title,
         description: $scope.newLecture_descr,
@@ -87,6 +87,7 @@ angular.module('twebProject1App')
 
         $window.location = '/presenterSide?presentationId=' + data._id;
       });
+    */
     };
 
     function getTime() {
@@ -109,4 +110,3 @@ angular.module('twebProject1App')
     }
 
   });
-

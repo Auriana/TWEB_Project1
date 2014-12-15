@@ -6,7 +6,8 @@ angular.module('twebProject1App', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angular-file-upload'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider

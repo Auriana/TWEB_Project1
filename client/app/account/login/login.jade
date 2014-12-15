@@ -4,9 +4,9 @@ div(ng-include='"components/navbar/navbar_login.html"')
         .row
             .col-sm-8
                 h1.big-title
-                  | Make your landing page
+                  | Dimmi, the perfect tool
                   br
-                  | look really good.              
+                  | for any presentation or lecture.           
             .col-sm-3.color-bloc
                 h1.no-margin Log in
                 form.form(name='form', ng-submit='login(form)', novalidate='')
@@ -32,16 +32,16 @@ div(ng-include='"components/navbar/navbar_login.html"')
 .container
     .row.mt.centered
         .col-lg-6.col-lg-offset-3
-          h1 Dimmi, the perfect tool for any presentation
+          h1 Assess if your audience has understood your speech
           h3
-            | It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.
+            | It is an established fact that the audience is often shy and hesitates to ask questions.
       .row.mt.centered
         .col-lg-6.col-lg-offset-3
 .container
   hr
   .row.centered
       .col-lg-6.col-lg-offset-3
-        | Sign up and discover all the features
+         a.mega-link(href='/signup') Sign up and discover all the features
   hr				
 
 .container.line
@@ -81,11 +81,9 @@ div(ng-include='"components/navbar/navbar_login.html"')
   hr
   .row.centered
       .col-lg-6.col-lg-offset-3
-        | Sign up and discover all the features
+        a.mega-link(href='/signup') Sign up and discover all the features
   hr
 footer.footer
   .container
-    p
-    | Dimmi v0
-  = ' | '
-    | TWEB Project 1 - Anthony Roubaty & Auriana Hug
+    p Dimmi v1
+      | TWEB Project 1 - Anthony Roubaty & Auriana Hug
