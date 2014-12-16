@@ -7,7 +7,7 @@ Heroku : https://dimmi-tweb.herokuapp.com
 Authors: Anthony Roubaty & Auriana Hug.
 
 ## To do
-- 1) AN - solve PDF upload.
+- 1) AN-AU - solve PDF upload -> have to load it in the presenterSide view (id = undefined)
 - 2) AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
 - 3) ? - fix and solve heroku problems.
 - 4) DONE - solve first pdf page problem
@@ -17,7 +17,7 @@ Authors: Anthony Roubaty & Auriana Hug.
 - 8) DONE - modify the Change Password page.
 - 9) AU - improve design for a more practical use.
 - 10) create the analytics page.
-- 11) confirm the password.
+- 11) confirm the password of lecture.
 - 12) create the list of Archive under the blocks.
 - 13) before quit the lecture, ask if sure (both sides).
 - 14) notifications of questions.
@@ -25,7 +25,6 @@ Authors: Anthony Roubaty & Auriana Hug.
 
 ## Current problems
 - Heroku commit. Miss many things (CSS, etc.)
-- File upload doesn't work locally.
 - The viewer can't correctly join the lecture.
 - No PDF file is linked to the session.
 
