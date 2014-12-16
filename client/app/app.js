@@ -7,7 +7,7 @@ angular.module('twebProject1App', [
   'btford.socket-io',
   'ui.router',
   'ui.bootstrap',
-  'angular-file-upload'
+  'angularFileUpload'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider) {
     $urlRouterProvider
