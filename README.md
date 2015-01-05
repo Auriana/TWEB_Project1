@@ -38,7 +38,7 @@ The content covers:
 
 1. [What Dimmi is, and why](#What)
 
-2. [How Dimmi works, from a technical standpoint](#Work)
+2. [How Dimmi works](#Work)
 
 3. [How to run this project](#Run)
 
@@ -48,9 +48,9 @@ The content covers:
 
 ## <a name="What"></a>1. What Dimmi is, and why
 
-### What
+###1.1 What
 
-<img src="https://github.com/Auriana/TWEB_Project1/blob/master/doc-img/logo_Dimmi.png"
+<img src="https://github.com/Auriana/TWEB_Project1/blob/master/doc-img/logo_Dimmi_round.png"
  alt="Dimmi logo" title="Dimmi" align="right" />
 
 This application allows the user take part of a lecture, as the presenter or as a viewer.
@@ -59,17 +59,17 @@ the "show", and the presenter is able to see them directly, and can change behav
 
 It is possible to find [more details](https://github.com/Auriana/TWEB_Project1/blob/master/DIMMI.md) about the concept and the use.
 
-### Why
+###1.2 Why
 
 We built this application in the context of a Web Technologies course (HEIG-VD). But the idea of the general concept comes 
 from an established fact: the audience is often shy and hesitates to ask questions. This application aims to facilitate the communication 
 and to assess the presenter if the audience has understood his/her speech.
 
-## <a name="Work"></a>2. How Dimmi works, from a technical standpoint
+## <a name="Work"></a>2. How Dimmi works
 
-Bla blab with AngularJS and MongoDB on Heroku.com
+As it is mentioned above, Dimmi is a web application, built with AngularJS and MongoDB on Heroku.com
 
-So, curious ? The very technical details are situated [here](https://github.com/Auriana/TWEB_Project1/blob/master/DIMMI_implementation.md).
+So, curious ? The very technical details are situated [here](https://github.com/Auriana/TWEB_Project1/blob/master/STRUCTURE.md).
 
 ## <a name="Run"></a>3. How to run this project
 
@@ -87,14 +87,16 @@ Be sure to have installed NodeJS, Bower and Grunt on your local machine.
 
 ## <a name="Develop"></a>4. How we plan to develop Dimmi
 
-* submit poll
-* notifications of questions.
-* duplicate presenter screen.
+* **Submit poll** : It could be really useful for the presenter to create a specific poll about his/her lecture to the audience. Then, the answers would be saved, and possible to see in the archive.
+* **Notifications of questions** : The implemented chat already allows the audience to express itself, but its issues have to be highlighted. Thus the presenter would see them better and could quickly answer to them.
+* **Duplication of presenter screen** : We've imagined a secpnd screen with only the PDF view for the beamer, and the initial one who allows the presenter to follow the mood of the audience.
 
 ## <a name="Improve"></a>5. How to add improvements
 
-We welcome fixes and improvements! If you have an idea on how to improve it, we'd love yout to share it here.
-Please fork the repo, make your changes and then create a pull request.
+We welcome fixes and improvements! If you have an idea on how to improve Dimmi, we'd love you to share it here.
+Please contact us if this is the case !
+
+
 
 #### Authors
 
