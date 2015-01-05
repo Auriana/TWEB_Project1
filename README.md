@@ -7,26 +7,22 @@ Heroku : https://dimmi-tweb.herokuapp.com
 Authors: Anthony Roubaty & Auriana Hug.
 
 ## To do
-- 1) AN-AU - solve PDF upload -> have to load it in the presenterSide view (id = undefined)
+- 1) AN - solve PDF upload -> have to load it in the presenterSide view (id = undefined)
 - 2) AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
-- 3) ? - fix and solve heroku problems.
-- 4) DONE - solve first pdf page problem
-- 5) DONE - for feedback: manage timestamp of message "request" and current number of slides, etc.
-- 6) DONE - prepare the scenario of our demo (must have/nice to have).
-- 7) DONE - create the landing page // To be continued.
-- 8) DONE - modify the Change Password page.
-- 9) AU - improve design for a more practical use.
-- 10) create the analytics page.
-- 11) confirm the password of lecture.
-- 12) create the list of Archive under the blocks.
-- 13) before quit the lecture, ask if sure (both sides).
-- 14) notifications of questions.
-- 15) duplicate presenter screen.
-
-## Current problems
-- Heroku commit. Miss many things (CSS, etc.)
-- The viewer can't correctly join the lecture.
-- No PDF file is linked to the session.
+- 3) fix and solve heroku problems.
+- 4) delete the popup test on PDF upload.
+- 5) create the list of Archive under the blocks.
+- 6) delete the "things".
+- 7) improve design for a more practical use.
+- 8) create the analytics page.
+- 9) before quit the lecture, ask if sure (both sides).
+- LATER notifications of questions.
+- LATER - duplicate presenter screen.
+- DONE - solve first pdf page problem
+- DONE - for feedback: manage timestamp of message "request" and current number of slides, etc.
+- DONE - prepare the scenario of our demo (must have/nice to have).
+- DONE - create the landing page.
+- DONE - modify the Change Password page.
 
 ## Scenario of the demo
 - 1) Land on the home page (landing page)
@@ -52,11 +48,11 @@ Authors: Anthony Roubaty & Auriana Hug.
 
 ### Presenter
 - prepare lecture (OK)
-- link PDF slides (KO!) - static, need to be dynamic
+- link PDF slides (KO)
 - give lecture (OK)
 - control slides (OK)
 - see feedback (KO) - create link to feedback page => think about the feedback page
-- submit poll (?) - requests
+- submit poll (?) 
 
 ### Viewer
 - join and attend lecture (~OK) - enter the password of the lecture
