@@ -15,7 +15,6 @@ angular.module('twebProject1App')
 
     //selecting the file to upload
     $scope.onFileSelect = function ($files) {
-      alert("efoidsjfoidsjods");
       if ($files != undefined) {
         $scope.selectedFile = $files[0]
         if ($scope.selectedFile.type !== 'application/pdf') {
@@ -59,7 +58,18 @@ angular.module('twebProject1App')
           else {
             // Success!
             alert('Upload Done');
-            $window.location = '/presenterSide?presentationId=' + data._id;
+
+            $http.post('/api/presentations', {
+              title: $scope.newLecture_title,
+              description: $scope.newLecture_descr,
+              pdfPath: 'https://s3.eu-central-1.amazonaws.com/frankfurt-bucket-tweb/' + $scope.selectedFile.name,
+              userId: Auth.getCurrentUser()._id,
+              date_creation: getTime(),
+              page: 1,
+              password: $scope.newLecture_pass
+            }).success(function (dataSecond, status, headers, confi) {
+              $window.location = '/presenterSide?presentationId=' + dataSecond._id;
+            });
           }
         })
           .on('httpUploadProgress',function(progress) {
@@ -74,20 +84,6 @@ angular.module('twebProject1App')
 
 
 
-/*
-      $http.post('/api/presentations', {
-        title: $scope.newLecture_title,
-        description: $scope.newLecture_descr,
-        pdfPath: 'notImplement',
-        userId: Auth.getCurrentUser()._id,
-        date_creation: getTime(),
-        page: 1,
-        password: $scope.newLecture_pass
-      }).success(function (data, status, headers, confi) {
-
-        $window.location = '/presenterSide?presentationId=' + data._id;
-      });
-    */
     };
 
     function getTime() {
