@@ -6,23 +6,17 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 ## To do
 
-1. DONE - solve PDF upload -> have to load it in the presenterSide view (id = undefined).
+1. AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
 
-2. AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
+2. fix and solve heroku problems.
 
-3. fix and solve heroku problems.
+3. create the list of Archive under the blocks.
 
-4. delete the popup test on PDF upload.
+4. improve design for a more practical use.
 
-5. create the list of Archive under the blocks.
+5. create the analytic page.
 
-6. delete the "things".
-
-7. improve design for a more practical use.
-
-8. create the analytic page.
-
-9. before quit the lecture, ask if sure (both sides).
+6. before quit the lecture, ask if sure (both sides).
 
 - LATER notifications of questions.
 - LATER - duplicate presenter screen.
@@ -31,6 +25,9 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 - DONE - prepare the scenario of our demo (must have/nice to have).
 - DONE - create the landing page.
 - DONE - modify the Change Password page.
+- DONE delete the "things".
+- DONE delete the popup test on PDF upload.
+- DONE - solve PDF upload -> have to load it in the presenterSide view (id = undefined).
 
 ## Content covered
 
