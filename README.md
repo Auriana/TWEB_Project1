@@ -6,7 +6,7 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 ## To do
 
-1. AN - solve PDF upload -> have to load it in the presenterSide view (id = undefined).
+1. DONE - solve PDF upload -> have to load it in the presenterSide view (id = undefined).
 
 2. AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
 
