@@ -1,21 +1,29 @@
 TWEB_Project1
 =============
-Building an application with AngularJS and MongoDB on Heroku.com
+TWEB_Project1 is the source code and content for Dimmi application.
 
-Heroku : https://dimmi-tweb.herokuapp.com
-
-Authors: Anthony Roubaty & Auriana Hug.
+Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and MongoDB on Heroku.com
 
 ## To do
-- 1) AN - solve PDF upload -> have to load it in the presenterSide view (id = undefined)
-- 2) AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
-- 3) fix and solve heroku problems.
-- 4) delete the popup test on PDF upload.
-- 5) create the list of Archive under the blocks.
-- 6) delete the "things".
-- 7) improve design for a more practical use.
-- 8) create the analytics page.
-- 9) before quit the lecture, ask if sure (both sides).
+
+1. AN - solve PDF upload -> have to load it in the presenterSide view (id = undefined).
+
+2. AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
+
+3. fix and solve heroku problems.
+
+4. delete the popup test on PDF upload.
+
+5. create the list of Archive under the blocks.
+
+6. delete the "things".
+
+7. improve design for a more practical use.
+
+8. create the analytics page.
+
+9. before quit the lecture, ask if sure (both sides).
+
 - LATER notifications of questions.
 - LATER - duplicate presenter screen.
 - DONE - solve first pdf page problem
@@ -24,76 +32,68 @@ Authors: Anthony Roubaty & Auriana Hug.
 - DONE - create the landing page.
 - DONE - modify the Change Password page.
 
-## Scenario of the demo
-- 1) Land on the home page (landing page)
-- 2) Quickly go through it.
-- 3) Come back to the logging section and create an account.
-- 4) Prepare a lecture (title, description, upload and password).
-- 5) Start the lecture. Describe the page and its components.
-- 6) With another account, log in.
-- 7) Enter the password. Confirm the lecture.
-- 8) Land on the viewer side. Describe the differences.
-- 9) Presenter: go through  sides.
-- 10) Viewer: see that the slides change.
-- 11) Viewer: write a question. And say "So down".
-- 12) Presenter: see the question and the request.
-- 13) Viewer and Presenter: quit the lecture.
-- 14) Viewer: log out.
-- 15) Presenter: see his archives and click on one old lecture.
-- 16) Land on the analytics page. Describe it.
+## Content covered
 
-## Specifications 
-### User
-- register & login (OK)
+The content covers:
 
-### Presenter
-- prepare lecture (OK)
-- link PDF slides (KO)
-- give lecture (OK)
-- control slides (OK)
-- see feedback (KO) - create link to feedback page => think about the feedback page
-- submit poll (?) 
+1. [What Dimmi is, and why](#What)
 
-### Viewer
-- join and attend lecture (~OK) - enter the password of the lecture
-- asks questions (OK) - chat
-- give feedback (OK) - chat + requests
-- answer poll (OK) - requests
+2. [How Dimmi works, from a technical standpoint](#Work)
 
-### Admin (?)
-- monitor system (KO)
-- consult admin dashboard (KO)
+3. [How to run this project](#Run)
 
-### Coming soon
-- submit poll
+4. [How we plan to develop Dimmi](#Develop)
 
-## How to run this project
-Be sure to have installed NodeJS, Bower and Grunt.
-- 1. Clone the repo
-- 2. Run MongoDB (mongod.exe file)
-- 3. With another shell, at `TWEB_Project1` root and write: `grunt build`. It will build the project.
-- 4. Run the project with `grunt serve`.
-- 5. A new browser page will open at http://localhost:9000.
+5. [How to add improvements](#Improve)
 
-## Description
-This application let the user take part of a presentation, as the presenter of as a viewer.
-The goal is to integrate a live feedback into a presentation. The audience can send private and public requests during
-the "show", and the presenter is able to see them directly.
+## <a name="What"></a>1. What Dimmi is, and why
 
-## Our concept
-A user creates an account. He can be a presenter and a viewer. 
-In the first case, he puts a PDF file, and indicates he's ready to present.
-In the second case, he selects the user who will present, then the title of the presentation. He chooses it and starts the PDF.
+### What
 
-## Users
-- Viewer
-- Presenter
+This application allows the user take part of a lecture, as the presenter or as a viewer.
+The goal is to integrate a live feedback into a given lecture. The audience can send public requests during
+the "show", and the presenter is able to see them directly, and can change behavior according to it.
 
-## Screens of the app
-- Logging page (log in/sign in)
-- Home page (after logging)
-- For the presenter :
-	- Presenter screen (slides, requests and chat).
-	- Only slides for the projector (?)
-- Viewer screen (slides, requests, stats and chat).
-- Presentation summary for past presentations : title, PDF file, description, date and stats (requests).
+It is possible to find [more details](https://github.com/Auriana/DIMMI.md) about the concept and the use.
+
+### Why
+
+We built this application in the context of a Web Technologies course (HEIG-VD). But the idea of the general concept comes 
+from an established fact: the audience is often shy and hesitates to ask questions. This application aims to facilitate the communication 
+and to assess the presenter if the audience has understood his/her speech.
+
+## <a name="Work"></a>2. How Dimmi works, from a technical standpoint
+
+Bla blab with AngularJS and MongoDB on Heroku.com
+
+So, curious ? The very technical details are situated [here](https://github.com/Auriana/DIMMI_implementation.md).
+
+## <a name="Run"></a>3. How to run this project
+
+Be sure to have installed NodeJS, Bower and Grunt on your local machine.
+
+1. Clone the repo.
+
+2. Run MongoDB (mongod.exe file).
+
+3. With another shell, at `TWEB_Project1` root and write: `grunt build`. It will build the project.
+
+4. Run the project with `grunt serve`.
+
+5. A new browser page will open at http://localhost:9000.
+
+## <a name="Develop"></a>4. How we plan to develop Dimmi
+
+* submit poll
+* notifications of questions.
+* duplicate presenter screen.
+
+## <a name="Improve"></a>5. How to add improvements
+
+We welcome fixes and improvements! If you have an idea on how to improve it, we'd love yout to share it here.
+Please fork the repo, make your changes and then create a pull request.
+
+## Authors
+
+Anthony Roubaty & Auriana Hug
+
