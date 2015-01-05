@@ -6,15 +6,24 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 ## To do
 
-1) AN - solve PDF upload -> have to load it in the presenterSide view (id = undefined)
-2) AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
-3) fix and solve heroku problems.
-4) delete the popup test on PDF upload.
-5) create the list of Archive under the blocks.
-6) delete the "things".
-7) improve design for a more practical use.
-8) create the analytics page.
-9) before quit the lecture, ask if sure (both sides).
+1. AN - solve PDF upload -> have to load it in the presenterSide view (id = undefined).
+
+2. AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
+
+3. fix and solve heroku problems.
+
+4. delete the popup test on PDF upload.
+
+5. create the list of Archive under the blocks.
+
+6. delete the "things".
+
+7. improve design for a more practical use.
+
+8. create the analytics page.
+
+9. before quit the lecture, ask if sure (both sides).
+
 - LATER notifications of questions.
 - LATER - duplicate presenter screen.
 - DONE - solve first pdf page problem
@@ -26,11 +35,15 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 ## Content covered
 
 The content covers:
-1. [What](What Dimmi is, including why we developed it)
-2. [Work](How Dimmi works, from a technical standpoint)
-3. [Run](How to run this project)
-4. [Develop](How we plan to develop Dimmi)
-5. [Improve](How to add improvements)
+1. [What Dimmi is, including why we developed it](#What)
+
+2. [How Dimmi works, from a technical standpoint](#Work)
+
+3. [How to run this project](#Run)
+
+4. [How we plan to develop Dimmi](#Develop)
+
+5. [How to add improvements](#Improve)
 
 ## <a name="What"></a>1. What Dimmi is, including why we developed it
 
