@@ -20,7 +20,7 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 7. improve design for a more practical use.
 
-8. create the analytics page.
+8. create the analytic page.
 
 9. before quit the lecture, ask if sure (both sides).
 
@@ -50,11 +50,14 @@ The content covers:
 
 ### What
 
+<img src="https://github.com/Auriana/TWEB_Project1/blob/master/doc-img/logo_Dimmi.png"
+ alt="Dimmi logo" title="Dimmi" align="right" />
+
 This application allows the user take part of a lecture, as the presenter or as a viewer.
 The goal is to integrate a live feedback into a given lecture. The audience can send public requests during
 the "show", and the presenter is able to see them directly, and can change behavior according to it.
 
-It is possible to find [more details](https://github.com/Auriana/DIMMI.md) about the concept and the use.
+It is possible to find [more details](https://github.com/Auriana/TWEB_Project1/blob/master/DIMMI.md) about the concept and the use.
 
 ### Why
 
@@ -66,7 +69,7 @@ and to assess the presenter if the audience has understood his/her speech.
 
 Bla blab with AngularJS and MongoDB on Heroku.com
 
-So, curious ? The very technical details are situated [here](https://github.com/Auriana/DIMMI_implementation.md).
+So, curious ? The very technical details are situated [here](https://github.com/Auriana/TWEB_Project1/blob/master/DIMMI_implementation.md).
 
 ## <a name="Run"></a>3. How to run this project
 
@@ -93,7 +96,7 @@ Be sure to have installed NodeJS, Bower and Grunt on your local machine.
 We welcome fixes and improvements! If you have an idea on how to improve it, we'd love yout to share it here.
 Please fork the repo, make your changes and then create a pull request.
 
-## Authors
+#### Authors
 
 Anthony Roubaty & Auriana Hug
 
