@@ -10,7 +10,11 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 2. fix and solve heroku problems.
 
+<<<<<<< HEAD
 3. improve design for a more practical use.
+=======
+3. DONE - create the list of Archive under the blocks.
+>>>>>>> origin/master
 
 
 ## Content covered
