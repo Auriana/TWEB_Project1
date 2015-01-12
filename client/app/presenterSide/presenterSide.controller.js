@@ -22,8 +22,6 @@ angular.module('twebProject1App')
       $scope.titlePresentation = pres.title;
       $scope.pdfUrl = pres.pdfPath;
 
-
-
       /**
        * Asynchronously downloads PDF.
        */
@@ -120,14 +118,6 @@ angular.module('twebProject1App')
       });
     });
 */
-    var pdfDoc = null,
-      pageNum = 1,
-      pageRendering = false,
-      pageNumPending = null,
-      scale = 0.8,
-      canvas = document.getElementById('the-canvas'),
-      ctx = canvas.getContext('2d');
-
     /*
      * Get page info from document, resize canvas accordingly, and render page.
      * @param num Page number.

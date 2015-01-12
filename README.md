@@ -6,7 +6,7 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 ## To do
 
-1. AN - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
+1. DONE - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
 
 2. fix and solve heroku problems.
 
