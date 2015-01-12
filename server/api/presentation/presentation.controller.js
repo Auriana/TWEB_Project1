@@ -20,6 +20,15 @@ exports.show = function(req, res) {
   });
 };
 
+// Get a single presentation by pw
+exports.showByPw = function(req, res) {
+  Presentation.findOne({password : req.params.pw}).exec(function (err, presentation) {
+    if(err) { return handleError(res, err); }
+    if(!presentation) { return res.send(404); }
+    return res.json(presentation);
+  });
+};
+
 // Creates a new presentation in the DB.
 exports.create = function(req, res) {
   Presentation.create(req.body, function(err, presentation) {

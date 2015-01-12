@@ -6,9 +6,29 @@ angular.module('twebProject1App')
     //pour récupère le GET de presenterSide?presentationId=XXX
     $scope.presentationId = $location.search().presentationId;
     $scope.titlePresentation = 'Fail to load';
+    $scope.pdfUrl = 'Not load yet';
+
+    var pdfDoc = null,
+      pageNum = 1,
+      pageRendering = false,
+      pageNumPending = null,
+      scale = 0.8,
+      canvas = document.getElementById('the-canvas'),
+      ctx = canvas.getContext('2d');
 
     $http.get('/api/presentations/' + $scope.presentationId).success(function (pres) {
       $scope.titlePresentation = pres.title;
+      $scope.pdfUrl = pres.pdfPath;
+
+      /**
+       * Asynchronously downloads PDF.
+       */
+      PDFJS.getDocument($scope.pdfUrl).then(function (pdfDoc_) {
+        pdfDoc = pdfDoc_;
+        document.getElementById('page_count').textContent = pdfDoc.numPages;
+        // Initial/first page rendering
+        renderPage(pageNum);
+      });
     });
 
     // Chat part
@@ -108,45 +128,7 @@ angular.module('twebProject1App')
       queueRenderPage(num);
       pageNum = num;
     });
-    //////////////////////
-    //
-    // If absolute URL from the remote server is provided, configure the CORS
-    // header on that server.
-    //
-    var url = './data/WebInfra.pdf';
-    //
-    // Fetch the PDF document from the URL using promises
-    //
-    PDFJS.getDocument(url).then(function (pdf) {
-      // Using promise to fetch the page
-      pdf.getPage(1).then(function (page) {
-        var scale = 1.5;
-        var viewport = page.getViewport(scale);
-        //
-        // Prepare canvas using PDF page dimensions
-        //
-        var canvas = document.getElementById('the-canvas');
-        var context = canvas.getContext('2d');
-        canvas.height = viewport.height - 100;
-        canvas.width = viewport.width - 100;
-                //
-        // Render PDF page into canvas context
-        //
-		//        var renderContext = {
-		//          canvasContext: context,
-		//          viewport: viewport
-		//        };
-		//        page.render(renderContext);
-		renderPage(1); 
-      });
-    });
-    var pdfDoc = null,
-      pageNum = 1,
-      pageRendering = false,
-      pageNumPending = null,
-      scale = 0.8,
-      canvas = document.getElementById('the-canvas'),
-      ctx = canvas.getContext('2d');
+
     /*
      * Get page info from document, resize canvas accordingly, and render page.
      * @param num Page number.
@@ -210,13 +192,4 @@ angular.module('twebProject1App')
       pageNum++;
       queueRenderPage(pageNum);
     }
-    /**
-     * Asynchronously downloads PDF.
-     */
-    PDFJS.getDocument(url).then(function (pdfDoc_) {
-      pdfDoc = pdfDoc_;
-      document.getElementById('page_count').textContent = pdfDoc.numPages;
-      // Initial/first page rendering
-      renderPage(pageNum);
-    });
   });

@@ -4,6 +4,19 @@ angular.module('twebProject1App')
   .controller('HomeCtrl', function ($scope, $http, socket, Auth, $window) {
     $scope.awesomeThings = [];
 
+    //Join Lecture
+    $scope.lectureToJoin = "test";
+    $scope.lectureToJoinUrl = "";
+
+    $scope.JoinPresentation = function(){
+      $http.get('/api/presentations/pass/' + $scope.join_pass).success(function (data, status, headers, config) {
+        $scope.lectureToJoin = data.title;
+        $scope.lectureToJoinUrl = "viewerSide?presentationId=" + data._id;
+      }).error(function(data, status, headers, config){
+        $scope.lectureToJoin = "Lecture Not Found."
+      });
+    };
+
     $scope.creds = {
       bucket: 'frankfurt-bucket-tweb',
       access_key: 'AKIAIOAZDTCXKH2V52QA',
@@ -28,29 +41,31 @@ angular.module('twebProject1App')
 
     //Create lesson
     $scope.startPresentation = function () {
-      /*if ((typeof $scope.newLecture_title != 'undefined' ) || ($scope.newLecture_title === '')) {
-       alert('Please to give a title to this lecture');
-       return;
-       }
+      //Check if the password is already used
+      //$scope.newLecture_pass
+      $http.get('/api/presentations/pass/' + $scope.newLecture_pass).success(function (data, status, headers, config){
+        alert("Password already used.");
+      }).error(function(data, status, headers, config){
+        fToUpload();
+      });
 
-       if ((typeof $scope.newLecture_descr != 'undefined') || ($scope.newLecture_descr === '')) {
-       alert('Please to give a description to this lecture');
-       return;
-       }
+    };
 
-       if ((typeof $scope.newLecture_pass != 'undefined') || ($scope.newLecture_pass === '')) {
-       alert('Please to give a password to this lecture');
-       return;
-       }*/
-
-      AWS.config.update({ accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key });
+    //Upload pdf
+    var fToUpload = function(){
+      AWS.config.update({accessKeyId: $scope.creds.access_key, secretAccessKey: $scope.creds.secret_key});
       AWS.config.region = 'eu-central-1';
-      var bucket = new AWS.S3({ params: { Bucket: $scope.creds.bucket } });
-      if(isFileSelected) {
-        var params = { Key: $scope.selectedFile.name, ContentType: $scope.selectedFile.type, Body: $scope.selectedFile, ServerSideEncryption: 'AES256' };
+      var bucket = new AWS.S3({params: {Bucket: $scope.creds.bucket}});
+      if (isFileSelected) {
+        var params = {
+          Key: $scope.selectedFile.name,
+          ContentType: $scope.selectedFile.type,
+          Body: $scope.selectedFile,
+          ServerSideEncryption: 'AES256'
+        };
 
-        bucket.putObject(params, function(err, data) {
-          if(err) {
+        bucket.putObject(params, function (err, data) {
+          if (err) {
             // There Was An Error With Your S3 Config
             alert(err.message);
             return false;
@@ -72,7 +87,7 @@ angular.module('twebProject1App')
             });
           }
         })
-          .on('httpUploadProgress',function(progress) {
+          .on('httpUploadProgress', function (progress) {
             // Log Progress Information
             console.log(Math.round(progress.loaded / progress.total * 100) + '% done');
           });
@@ -81,10 +96,8 @@ angular.module('twebProject1App')
         // No File Selected
         alert('No File Selected');
       }
+    }
 
-
-
-    };
 
     function getTime() {
       var d = new Date();

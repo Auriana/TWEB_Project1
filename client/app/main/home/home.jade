@@ -25,14 +25,17 @@ div(ng-include='"components/navbar/navbar.html"')
     .col-md-6
       h1 Viewer side
       .col-md-12.color-bloc
-        form.join
+        form.join(ng-controller="HomeCtrl")
           h2 Join a lecture
           .form-group
             label Password of the lecture
-            input.form-control(type='text', placeholder='password of the lecture', ng-model='presentation.password')
+            input.form-control(type='text', placeholder='password of the lecture', ng-model='join_pass')
+          .form-group
+            label Lecture you want to join :
+             a(href='{{lectureToJoinUrl}}')  {{lectureToJoin}}
           .form-group
             .span-2
-              a.btn.btn-primary.btn-login.black-button.btn-sub(href="/viewerSide") Join
+              a.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='JoinPresentation()') Join
 
 
 footer.footer
