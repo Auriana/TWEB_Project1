@@ -16,7 +16,7 @@ angular.module('twebProject1App')
     });
 
     //Join Lecture
-    $scope.lectureToJoin = "test";
+    $scope.lectureToJoin = "";
     $scope.lectureToJoinUrl = "";
 
     $scope.JoinPresentation = function(){
