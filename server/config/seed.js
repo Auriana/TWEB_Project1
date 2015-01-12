@@ -6,6 +6,12 @@
 'use strict';
 
 var User = require('../api/user/user.model');
+var Presentation = require('../api/presentation/presentation.model');
+var Message = require('../api/message/message.model');
+
+Presentation.find({}).remove();
+
+Message.find({}).remove();
 
 User.find({}).remove(function() {
   User.create({

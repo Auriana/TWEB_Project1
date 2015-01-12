@@ -22,6 +22,12 @@ div(ng-include='"components/navbar/navbar.html"')
             .span-2
               button.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='startPresentation()') Start
 
+      .col-md-12.color-bloc
+         h2 Archive
+         ul(ng-repeat='archive in archives')
+           li
+            a(href='{{archive.url}}') {{archive.title}}
+
     .col-md-6
       h1 Viewer side
       .col-md-12.color-bloc
@@ -36,6 +42,7 @@ div(ng-include='"components/navbar/navbar.html"')
           .form-group
             .span-2
               a.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='JoinPresentation()') Join
+
 
 
 footer.footer

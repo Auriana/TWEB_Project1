@@ -2,7 +2,18 @@
 
 angular.module('twebProject1App')
   .controller('HomeCtrl', function ($scope, $http, socket, Auth, $window) {
-    $scope.awesomeThings = [];
+    //Archive lecture
+    $scope.archives = [];
+
+    $http.get('/api/presentations/user/' + Auth.getCurrentUser()._id)
+      .success(function (data, status, headers, config){
+        data.forEach(function(pres){
+          $scope.archives.push({
+            "url" : "/presenterSide?presentationId=" + pres._id,
+            "title" : pres.title
+          })
+        });
+    });
 
     //Join Lecture
     $scope.lectureToJoin = "test";
