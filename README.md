@@ -50,7 +50,7 @@ The content covers:
 <img src="https://github.com/Auriana/TWEB_Project1/blob/master/doc-img/logo_Dimmi_round.png"
  alt="Dimmi logo" title="Dimmi" align="right" />
 
-This application allows the user take part of a lecture, as the presenter or as a viewer.
+This application allows the user to take part of a lecture, as the speaker (presenter) or as a memebr of the audience (viewer).
 The goal is to integrate a live feedback into a given lecture. The audience can send public requests during
 the "show", and the presenter is able to see them directly, and can change behavior according to it.
 
@@ -64,7 +64,7 @@ and to assess the presenter if the audience has understood his/her speech.
 
 ## <a name="Work"></a>2. How Dimmi works
 
-As it is mentioned above, Dimmi is a web application, built with AngularJS and MongoDB on Heroku.com
+As it is mentioned above, Dimmi is a web application, built with [AngularJS](https://angularjs.org) and [MongoDB](http://www.mongodb.org) on [Heroku.com](https://www.heroku.com).
 
 So, curious ? The very technical details are situated [here](https://github.com/Auriana/TWEB_Project1/blob/master/STRUCTURE.md).
 
@@ -84,15 +84,18 @@ Be sure to have installed NodeJS, Bower and Grunt on your local machine.
 
 ## <a name="Develop"></a>4. How we plan to develop Dimmi
 
+At this moment, we have stopped the implementation of this project. But we have planned to add some interesting additional features. 
+
 * **Submit poll** : It could be really useful for the presenter to create a specific poll about his/her lecture to the audience. Then, the answers would be saved, and possible to see in the archive.
 * **Notifications of questions** : The implemented chat already allows the audience to express itself, but its issues have to be highlighted. Thus the presenter would see them better and could quickly answer to them.
-* **Duplication of presenter screen** : We've imagined a secpnd screen with only the PDF view for the beamer, and the initial one who allows the presenter to follow the mood of the audience.
+* **Duplication of presenter screen** : We've imagined a second screen with only the PDF view for the beamer, and the initial one who allows the presenter to follow the mood of the audience.
+* *System monitoring* : The admin have to monitor the application. We have to provide him a solution.
+* *Admin dashboard* : It would be interesting for the admin to have an overview of the number of the visitors of the app, on which frequency, and so on. We have thought about adding the Google Analytics service.
 
 ## <a name="Improve"></a>5. How to add improvements
 
 We welcome fixes and improvements! If you have an idea on how to improve Dimmi, we'd love you to share it here.
 Please contact us if this is the case !
-
 
 
 #### Authors
