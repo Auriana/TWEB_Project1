@@ -1,6 +1,7 @@
 div(ng-include='"components/navbar/navbar.html"')
 .container
   .row
+    button.btn.btn-default.btn-lg.black-button(type='button', value='exit', ng-click="exit()") Exit
     .col-md-7
       h1.page-header {{titlePresentation}}
       #no_pages

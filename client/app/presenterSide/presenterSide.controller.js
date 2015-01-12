@@ -1,7 +1,13 @@
 'use strict';
 
 angular.module('twebProject1App')
-  .controller('PresentersideCtrl', function ($scope, $http, socket, $location) {
+  .controller('PresentersideCtrl', function ($scope, $http, socket, $location, $window) {
+
+    $scope.exit = function(){
+      if (confirm("Are you sure ?")) { // Clic sur OK
+        $window.location = '/';
+      }
+    };
 
     //pour récupère le GET de presenterSide?presentationId=XXX
     $scope.presentationId = $location.search().presentationId;
