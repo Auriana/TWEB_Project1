@@ -116,7 +116,7 @@ This page is very similar to the presenter's one.
 
 He we have 3 blocks:
 1) **The PDF view** : allows to see and navigate through the slides.
-2) **The audience live** : this is the chat of the lecture, where the viewers can write his/her questions/comments.
+2) **The audience live** : this is the chat of the lecture, where the viewers can write his/her questions/comments from the field name "My inputs".
 3) **The audience requests** : there are 4 types of " user requests" :
 	* "Slow down"
 	* "Louder"

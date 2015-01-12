@@ -6,28 +6,12 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 ## To do
 
-1. DONE - the viewer have to be able to join the lecture via the password (+ confirmation with title of lecture under).
+1. documentation
 
 2. fix and solve heroku problems.
 
-3. create the list of Archive under the blocks.
+3. improve design for a more practical use.
 
-4. improve design for a more practical use.
-
-5. create the analytic page.
-
-6. before quit the lecture, ask if sure (both sides).
-
-- LATER notifications of questions.
-- LATER - duplicate presenter screen.
-- DONE - solve first pdf page problem
-- DONE - for feedback: manage timestamp of message "request" and current number of slides, etc.
-- DONE - prepare the scenario of our demo (must have/nice to have).
-- DONE - create the landing page.
-- DONE - modify the Change Password page.
-- DONE delete the "things".
-- DONE delete the popup test on PDF upload.
-- DONE - solve PDF upload -> have to load it in the presenterSide view (id = undefined).
 
 ## Content covered
 
@@ -89,8 +73,8 @@ At this moment, we have stopped the implementation of this project. But we have 
 * **Submit poll** : It could be really useful for the presenter to create a specific poll about his/her lecture to the audience. Then, the answers would be saved, and possible to see in the archive.
 * **Notifications of questions** : The implemented chat already allows the audience to express itself, but its issues have to be highlighted. Thus the presenter would see them better and could quickly answer to them.
 * **Duplication of presenter screen** : We've imagined a second screen with only the PDF view for the beamer, and the initial one who allows the presenter to follow the mood of the audience.
-* *System monitoring* : The admin have to monitor the application. We have to provide him a solution.
-* *Admin dashboard* : It would be interesting for the admin to have an overview of the number of the visitors of the app, on which frequency, and so on. We have thought about adding the Google Analytics service.
+* **System monitoring** : The admin have to monitor the application. We have to provide him a solution.
+* **Admin dashboard** : It would be interesting for the admin to have an overview of the number of the visitors of the app, on which frequency, and so on. We have thought about adding the Google Analytics service.
 
 ## <a name="Improve"></a>5. How to add improvements
 
