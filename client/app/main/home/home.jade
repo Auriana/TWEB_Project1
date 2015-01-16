@@ -5,7 +5,7 @@ div(ng-include='"components/navbar/navbar.html"')
       h1 Presenter side
       .col-md-12.color-bloc
         form.presenter(ng-controller="HomeCtrl")
-          h2 Prepare a new lecture
+          h2.no-top-margin Prepare a new lecture
           .form-group
             label Title
             input.form-control(type='text', placeholder='Title', ng-model='newLecture_title')
@@ -22,26 +22,29 @@ div(ng-include='"components/navbar/navbar.html"')
             .span-2
               button.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='startPresentation()') Start
 
-      .col-md-12.color-bloc
-         h2 Archive
+      .col-md-12.color-bloc.top-margin
+         h2.no-top-margin Archive
+         p Here's the list of the past presented lectures.
          ul(ng-repeat='archive in archives')
            li
-            a(href='{{archive.url}}') {{archive.title}}
+            a.text-link(href='{{archive.url}}') {{archive.title}}
 
     .col-md-6
       h1 Viewer side
       .col-md-12.color-bloc
         form.join(ng-controller="HomeCtrl")
-          h2 Join a lecture
+          h2.no-top-margin Join a lecture
           .form-group
             label Password of the lecture
             input.form-control(type='text', placeholder='password of the lecture', ng-model='join_pass')
           .form-group
-            label Lecture you want to join :
-             a(href='{{lectureToJoinUrl}}')  {{lectureToJoin}}
-          .form-group
             .span-2
-              a.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='JoinPresentation()') Join
+              a.btn.btn-primary.btn-login.black-button.btn-sub(type='submit', ng-click='JoinPresentation()') Find
+          .clearer
+          .form-group
+            label Lecture you want to join (clic on it to join !): 
+            p
+              a.text-link(href='{{lectureToJoinUrl}}'){{lectureToJoin}}
 
 
 

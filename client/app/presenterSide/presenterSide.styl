@@ -1,14 +1,12 @@
-#chatDisplay
-  height 400px
-  overflow auto
-
-canvas#the-canvas
-  border 1px solid #525252
-  max-width 653px
-
 #no_pages
   display block
-  float right
+  float left
+  padding-top 15px
+
+#nav_slides
+  display block
+  float left
+  width 50%
 
 .clearer
   clear both
@@ -24,6 +22,9 @@ canvas#the-canvas
 
 h2
   font-size 26px !important
+
+.no-top-margin
+  margin-top 0px !important
 
 .black-button
   font-weight 300
@@ -44,17 +45,13 @@ h2
 .inline
   display inline !important
 
+.border 
+  border 1px solid #525252
+
 .centred
   margin-left auto
   margin-right auto
   float none
-
-a
-  color #000 !important
-  text-decoration underline
-
-a:hover
-  color #fff
 
 .btn-sub
   float right
@@ -65,6 +62,9 @@ a:hover
 .no-margin
   margin-top 0
 
+.top-margin
+  margin-top 20px
+
 .dimmi
   padding-top 30px
   padding-bottom 23px
@@ -74,21 +74,33 @@ a:hover
   color #000000 !important
   font-weight bold
 
-#chatDisplay
-  max-height 220px !important
+#chatDisplay-pres
+  display block
+  height 400px
+  overflow auto
 
-#chatDisplay ul
-  border 1px solid #525252
+#chatDisplay-pres
+  max-height 340px !important
+
+#chatDisplay-pres ul
   padding-left 0
 
-#chatDisplay ul li
+#chatDisplay-pres ul li
   &:nth-child(odd)
     background-color #eee
+  &:nth-child(even)
+    background-color #fff
   list-style none
   padding 3px
 
 .big-top-margin
   margin-top 130px
 
+.big-top-margin-pres
+  margin-top 110px
+
 li#admin-link
   color #fff !important
+
+.float-right
+  float right

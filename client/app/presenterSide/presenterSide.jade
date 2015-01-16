@@ -1,8 +1,8 @@
 div(ng-include='"components/navbar/navbar.html"')
 .container
+  button.btn.btn-default.btn-lg.black-button.float-right(type='button', value='exit', ng-click="exit()") Exit the lecture
   .row
-    button.btn.btn-default.btn-lg.black-button(type='button', value='exit', ng-click="exit()") Exit
-    .col-md-7
+    .col-md-8
       h1.page-header {{titlePresentation}}
       #no_pages
         span
@@ -10,21 +10,25 @@ div(ng-include='"components/navbar/navbar.html"')
         span#page_num
         | /
         span#page_count
-      .clearer
-      canvas#the-canvas
       #nav_slides
         button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onPrevPage()') Previous
         button.btn.btn-default.btn-lg.black-button.inline(type='button', ng-click='onNextPage()') Next
+      .clearer
+      canvas#the-canvas
+     
+      
+    .col-md-4.color-bloc.big-top-margin-pres
+      h2.no-margin Audience requests
+      p.btn.btn-lg.black-button {{nbSlow}} Slow down
+      p.btn.btn-lg.black-button {{nbLoud}} Louder, please
+      p.btn.btn-lg.black-button {{nbLost}} I'm lost
+      p.btn.btn-lg.black-button {{nbInte}} Interesting
       h2 Audience live
-      #chatDisplay
-        ul
+      #chatDisplay-pres
+        ul.chat-box
           li(ng-repeat='thing in listeMsg', ng-init='scroll()')
-            {{thing.time}}
-            | : (Silde: {{thing.numSlide}})
-            | : {{thing.name}} :
-.col-md-3.col-md-offset-1.color-bloc
-  h2.no-margin Audience requests
-  p.btn-lg.black-button {{nbSlow}} Slow down
-  p.btn-lg.black-button {{nbLoud}} Louder, please
-  p.btn-lg.black-button {{nbLost}} I'm lost
-  p.btn-lg.black-button {{nbInte}} Interesting
+            b
+              {{thing.time}}
+              | - Slide 
+              {{thing.numSlide}}
+            | : {{thing.name}}

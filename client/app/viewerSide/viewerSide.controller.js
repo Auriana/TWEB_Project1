@@ -62,7 +62,7 @@ angular.module('twebProject1App')
       }
       $scope.date = new Date();
 
-      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
+      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes();
 
       $http.post('/api/messages', {
         name: $scope.inputChat,
@@ -87,18 +87,19 @@ angular.module('twebProject1App')
     //Button
     $scope.slowBut = function () {
       $scope.date = new Date();
-      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
+      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes();
       $http.post('/api/messages', {
         name: "Slow down!",
         time: $scope.formedDate,
         type: "slow",
-        presentationId: $scope.presentationId
+        presentationId: $scope.presentationId,
+	    numSlide: pageNum + ""
       });
     }
 
     $scope.loudBut = function () {
       $scope.date = new Date();
-      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
+      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes();
       $http.post('/api/messages', {
         name: "Louder, please!",
         time: $scope.formedDate,
@@ -109,7 +110,7 @@ angular.module('twebProject1App')
 
     $scope.lostBut = function () {
       $scope.date = new Date();
-      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
+      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes();
       $http.post('/api/messages', {
         name: "I'm lost !",
         time: $scope.formedDate,
@@ -120,7 +121,7 @@ angular.module('twebProject1App')
 
     $scope.inteBut = function () {
       $scope.date = new Date();
-      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes() + 'm' + $scope.date.getSeconds() + 's';
+      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes();
       $http.post('/api/messages', {
         name: "Interesting...",
         time: $scope.formedDate,

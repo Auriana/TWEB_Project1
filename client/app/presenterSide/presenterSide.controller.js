@@ -9,7 +9,7 @@ angular.module('twebProject1App')
       }
     };
 
-    //pour récupère le GET de presenterSide?presentationId=XXX
+    //pour récuperer le GET de presenterSide?presentationId=XXX
     $scope.presentationId = $location.search().presentationId;
     $scope.titlePresentation = 'Fail to load';
     $scope.pdfUrl = 'Not load yet';

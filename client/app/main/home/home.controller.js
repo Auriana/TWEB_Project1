@@ -42,7 +42,7 @@ angular.module('twebProject1App')
       if ($files != undefined) {
         $scope.selectedFile = $files[0]
         if ($scope.selectedFile.type !== 'application/pdf') {
-          alert('Please chose a pdf file !');
+          alert('Please choose a PDF file !');
           return;
         }
 
@@ -100,6 +100,8 @@ angular.module('twebProject1App')
         })
           .on('httpUploadProgress', function (progress) {
             // Log Progress Information
+			//var value = (Math.round(progress.loaded / progress.total * 100);
+		    //$scope.progress-bar = value;
             console.log(Math.round(progress.loaded / progress.total * 100) + '% done');
           });
       }

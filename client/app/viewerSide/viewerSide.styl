@@ -4,7 +4,7 @@
 
 canvas#the-canvas
   border 1px solid #525252
-  max-width 653px
+  max-width 100%
 
 #no_pages
   display block
@@ -24,6 +24,10 @@ canvas#the-canvas
 
 h2
   font-size 26px !important
+
+h3.chat
+  color #000
+  margin-top 12px
 
 .black-button
   color #fff
@@ -52,10 +56,13 @@ a.black-button:hover
   float none
 
 a
-  color #000 !important
+  color #000!important
+
+a.text-link
+  color #333
   text-decoration underline
 
-a:hover
+a.text-link:hover
   color #fff
 
 .btn-sub
@@ -65,7 +72,7 @@ a:hover
   border-top-left-radius 6px !important
 
 .no-margin
-  margin-top 0
+  margin-top 0!important
 
 .dimmi
   padding-top 30px
@@ -77,21 +84,29 @@ a:hover
   font-weight bold
 
 #chatDisplay
-  max-height 220px !important
+  max-height 200px !important
 
 #chatDisplay ul
-  border 1px solid #525252
   padding-left 0
 
 #chatDisplay ul li
   &:nth-child(odd)
     background-color #eee
+  &:nth-child(even)
+    background-color #fff
   list-style none
   padding 3px
+  font-size 11px
+
+ul.chat-box
+  margin-bottom 0px
 
 .big-top-margin
-  margin-top 130px
+  margin-top 86px
 
 li#admin-link
   color #fff !important
+
+.float-right
+  float right
 
