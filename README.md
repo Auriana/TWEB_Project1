@@ -10,10 +10,7 @@ Dimmi's URL is https://dimmi-tweb.herokuapp.com and is built with AngularJS and 
 
 2. numSlide for requests (see chat)
 
-2. fix and solve heroku problems.
-
-3. improve design for a more practical use.
-
+3. push last time on heroku, fix and solve possible problems.
 
 
 ## Content covered
