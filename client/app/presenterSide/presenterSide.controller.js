@@ -55,7 +55,6 @@ angular.module('twebProject1App')
       }
       socket.syncUpdates('message', $scope.listeMsg, function (event, item, array) {
         if (item.presentationId != $scope.presentationId) {
-          //array.push(item);
           $scope.listeMsg.pop();
         }
 
@@ -90,40 +89,6 @@ angular.module('twebProject1App')
       }
     }
 
-    //////////////////////
-    //
-    // If absolute URL from the remote server is provided, configure the CORS
-    // header on that server.
-    //
-    //var url = './data/WebInfra.pdf';
-
-    //
-    // Fetch the PDF document from the URL using promises
-    //
-   /* PDFJS.getDocument(url).then(function (pdf) {
-      // Using promise to fetch the page
-      pdf.getPage(1).then(function (page) {
-        var scale = 1.5;
-        var viewport = page.getViewport(scale);
-        //
-        // Prepare canvas using PDF page dimensions
-        //
-        var canvas = document.getElementById('the-canvas');
-        var context = canvas.getContext('2d');
-        canvas.height = viewport.height - 100;
-        canvas.width = viewport.width - 100;
-        //
-        // Render PDF page into canvas context
-        //
-		//        var renderContext = {
-		//          canvasContext: context,
-		//          viewport: viewport
-		//        };
-		//        page.render(renderContext);
-		renderPage(1);
-      });
-    });
-*/
     /*
      * Get page info from document, resize canvas accordingly, and render page.
      * @param num Page number.

@@ -93,7 +93,7 @@ angular.module('twebProject1App')
         time: $scope.formedDate,
         type: "slow",
         presentationId: $scope.presentationId,
-	    numSlide: pageNum + ""
+	      numSlide: pageNum + ""
       });
     }
 
@@ -104,7 +104,8 @@ angular.module('twebProject1App')
         name: "Louder, please!",
         time: $scope.formedDate,
         type: "loud",
-        presentationId: $scope.presentationId
+        presentationId: $scope.presentationId,
+        numSlide: pageNum + ""
       });
     }
 
@@ -115,7 +116,8 @@ angular.module('twebProject1App')
         name: "I'm lost !",
         time: $scope.formedDate,
         type: "lost",
-        presentationId: $scope.presentationId
+        presentationId: $scope.presentationId,
+        numSlide: pageNum + ""
       });
     }
 
@@ -126,7 +128,8 @@ angular.module('twebProject1App')
         name: "Interesting...",
         time: $scope.formedDate,
         type: "interesting",
-        presentationId: $scope.presentationId
+        presentationId: $scope.presentationId,
+        numSlide: pageNum + ""
       });
     }
 
