@@ -53,9 +53,12 @@ So, curious ? The very technical details are situated [here](https://github.com/
 
 ## <a name="State"></a>3. What is the current state of the project
 
-As we have first implemented the application locally, this version is the current one. As we mentioned, we offer a version built on **heroku** too. But this one has an additional bug, due to the deployement. The problem is, focusing on the local version, we have not already fix it.
+As we have first implemented the application locally, this version is the current one. As we mentioned, we offer a version built on **heroku** too. Unfortunately, we have the following problems for both versions :
 
-The bug we discovered it the following : It is not possible to see the PDF from the viewerSide or the presenterSide pages, although the PDF file was loaded correctly. We suppose the problem comes from Amazon S3 platform.
+* **Lecture recovery** :  We planned to propose to recover a past lecture, in order to continue a stopped one, or to see the stats (requests uses, questions). The problem is that it does not really work as we wish : the slide is not the one where we stopped, plus the number of the requests mmade by the audience.
+* **Archive** : The section called "Archive" from the home page shows only the lectures made during the session, not all of them (since the creation of the account of the user). We have to correct that.
+
+The additional bug we discovered **for the deployed version** is the following : It is not possible to see the PDF from the viewerSide or the presenterSide pages, although the PDF file was loaded correctly. We suppose the problem comes from Amazon S3 platform. The problem is, focusing on the local version, we have not already fix it.
 
 
 ## <a name="Run"></a>4. How to run this project

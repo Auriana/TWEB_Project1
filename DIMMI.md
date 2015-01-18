@@ -23,12 +23,12 @@ In the second case, he enters the password of the lecture. Then, it confirms and
 ## <a name="users"></a>2. Users of the application
 
 * Viewer : a member of the audience. 
-* Presenter : the speacker who presents his/her lecture.
+* Presenter : the speaker who presents his/her lecture.
 * Admin : the one who monitor the system.
 
 ## <a name="features"></a>3. Features
 
-We list here all the features the application offers to the user. Thereadfter, they are more explained. The additional ones are explained [here](https://github.com/Auriana/TWEB_Project1/blob/master/README.md#Develop).
+We list here all the features the application offers to the user. Thereafter, they are more explained. The additional ones are explained [here](https://github.com/Auriana/TWEB_Project1/blob/master/README.md#Develop).
 
 ### 3.1 Features dedicated to the user
 * register
@@ -40,7 +40,7 @@ We list here all the features the application offers to the user. Thereadfter, t
 * give a lecture 
 * control the slides 
 * see the feedback
-* submit a pll (additional feature)
+* submit a poll (additional feature)
 
 ### 3.3 Features dedicated to the viewer
 * join and attend a lecture 
@@ -59,7 +59,7 @@ The descriptions presented here allows to understand how to use Dimmi, for examp
 
 ### 4.1 The landing page
 
-The landing page introduce Dimmi's concept and main featutes. Plus, it allows the user to directly log in.
+The landing page introduce Dimmi's concept and main features. Plus, it allows the user to directly log in.
 
 ### 4.2 Sign up page
 
@@ -81,11 +81,11 @@ Inside it, the user has to enter all the information necessary to start a lectur
 
 It's important to not forget to transmit the written password to the audience, for instance by mail or written on a visible board.
 
-If the PDF is fully loaded, he/she then presses on the "Start" button and the screen switches to that of the lecture.
+He/She then presses on the "Start" button, and the PDF is loading. When it's finished, the screen switches to that of the lecture.
 
-Under the block of adding lectures, there is another which allows the presenter to see the archive. Archive contains the older lectures he has already given. The link conducts to the old Presenter Lecture screen (see below), with the PDF, the chat and the requests.
+Under the block of adding lectures, there is another one which allows the presenter to see the archive. Archive contains the older lectures he/she has already given. The link conducts to the old Presenter Lecture screen (see below), with the PDF, the chat and the requests.
 
-The second one, the viewer side, aims the viewver to **attend the lecture**.
+The second one, the viewer side, aims the viewer to **attend the lecture**.
 Inside it, the user has only to enter the password created and transmitted by the presenter.
 
 Then, he/she presses on the "Join" button and the screen switches to that of the lecture.
@@ -96,7 +96,7 @@ Then, he/she presses on the "Join" button and the screen switches to that of the
 
 The user has to be logged to see it. 
 
-Here we can see 3 blocks :
+Here we can see 3 sections :
 1) **The PDF view** : allows to see and navigate through the slides.
 2) **The audience live** : this is the chat of the lecture, where questions appear.
 3) **The audience requests** : there are 4 types of " user requests" :
@@ -106,7 +106,7 @@ Here we can see 3 blocks :
 	* "Interesting"
 They allow the presenter to have an overview about the mood of the audience, reading the count of them.
 
-The "Exit" button allows to quit the lecture (a alert will ask if the user is sure about doing this).
+The "Exit the lecture" button allows to quit the lecture (a alert will ask if the user is sure about doing this).
 
 #### 4.4.2 Viewer Lecture screen
 
@@ -116,15 +116,15 @@ This page is very similar to the presenter's one.
 
 He we have 3 blocks:
 1) **The PDF view** : allows to see and navigate through the slides.
-2) **The audience live** : this is the chat of the lecture, where the viewers can write his/her questions/comments from the field name "My inputs".
-3) **The audience requests** : there are 4 types of " user requests" :
+2) **The audience live** : this is the chat of the lecture, where the viewers can write his/her questions or comments from the field name "My inputs".
+He/she can either enter an input (for questions for instance) or use a " user requests" :
 	* "Slow down"
 	* "Louder"
 	* "I'm lost"
 	* "Interesting"
 The user can press on the button matching his/her mood, as often as he/she wishes.
 
-The "Exit" button allows to quit the lecture (a alert will ask if the user is sure about doing this).
+The "Exit the lecture" button allows to quit the lecture (a alert will ask if the user is sure about doing this).
 
 ### 4.6 Settings Page
 
