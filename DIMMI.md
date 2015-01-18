@@ -100,10 +100,11 @@ Here we can see 3 sections :
 1) **The PDF view** : allows to see and navigate through the slides.
 2) **The audience live** : this is the chat of the lecture, where questions appear.
 3) **The audience requests** : there are 4 types of " user requests" :
-	* "Slow down"
-	* "Louder"
-	* "I'm lost"
-	* "Interesting"
+* "Slow down"
+* "Louder"
+* "I'm lost"
+* "Interesting"
+
 They allow the presenter to have an overview about the mood of the audience, reading the count of them.
 
 The "Exit the lecture" button allows to quit the lecture (a alert will ask if the user is sure about doing this).
@@ -118,10 +119,11 @@ He we have 3 blocks:
 1) **The PDF view** : allows to see and navigate through the slides.
 2) **The audience live** : this is the chat of the lecture, where the viewers can write his/her questions or comments from the field name "My inputs".
 He/she can either enter an input (for questions for instance) or use a " user requests" :
-	* "Slow down"
-	* "Louder"
-	* "I'm lost"
-	* "Interesting"
+* "Slow down"
+* "Louder"
+* "I'm lost"
+* "Interesting"
+
 The user can press on the button matching his/her mood, as often as he/she wishes.
 
 The "Exit the lecture" button allows to quit the lecture (a alert will ask if the user is sure about doing this).
