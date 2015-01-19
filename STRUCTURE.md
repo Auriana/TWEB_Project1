@@ -69,7 +69,7 @@ Each model has an affiliated Stylus file. For example, the home page has its Sty
 
 ###3.1 MongoDB###
 
-To save the data, we use the NoSQL database MongoDB. It uses a collection system instead of the classic tables in a relation database.
+To save the data, we use the NoSQL database [MongoDB](http://www.mongodb.org/). It uses a collection system instead of the classic tables in a relation database.
 
 ###3.2 Entities###
 
@@ -80,6 +80,8 @@ For Dimmi, we have 3 endpoints :
   * presentation : lecture information.
   
   * user : user information.
+  
+<img src="https://github.com/Auriana/TWEB_Project1/blob/master/doc-img/entities.jpg" alt="entities" title="entities" align="center" />
 
 ###3.3 REST API###
 
@@ -96,7 +98,7 @@ When we create a endpoint (or entity), a new folder is created, which contains a
 * socket.js : contains some functions used by SocketIO, for exemple to broadcast a new entry.
 * spec.js : defines the I/O of the REST service.
   
- ###3.4 Adding a route### 
+###3.4 Adding a route###
  
 Sometime, we had to add a more specific route for our API. To do that, the first thing to do was to add a new route in
 the index.js file. After that, it was possible to create a specific function in the controller and link it to the route. Then we wrote the query.
@@ -110,7 +112,7 @@ In the client side, we have to use `$http` to send REST request, for example `$h
 The `$scope` variable represents the environment of the current application. This means that when we want to create a variable in the app, 
 we have to create it through the `$scope`. In this way, it's possible to use it in the different views (jade , ...).
 
-###4.2 Passing from home page to presenter/viewer sides### 
+###4.2 Passing from home page to presenter/viewer sides###
 
 Generally, to change the page automatically, we use the javascript propriety `window.location`. Besides, it's a bit more complicated when passing from home page to presenter/viewer sides. It is indeed necessary to keep the information of the presentation. To do that, we put the presentation's id into the URL. The callback function checks if the previous call was successful, validates the form, loads the PDF file, and finally switches the page.
 
@@ -130,16 +132,7 @@ In order to implement them, we used an existing library: [PDF.js](http://mozilla
 
 ```
 
-Plus, we had to change several parameters from the initial code. For example, `function onPrevPage() {...}` became `$ $scope.onPrevPage = function () {...]`inorder this function could be called by the button linked to this action. 
-
-       /*
-        var renderContext = {
-          canvasContext: context,
-          viewport: viewport
-        };
-        page.render(renderContext);
-        */
-        renderPage(1);
+Plus, we had to change several parameters from the initial code. For example, `function onPrevPage() {...}` became `$scope.onPrevPage = function () {...]`inorder this function could be called by the button linked to this action. 
 
 
 ##6. <a name="hosting"></a>PDF hosting##
