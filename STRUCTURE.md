@@ -14,14 +14,14 @@ Structure of DIMMI application
 	* presentation
 	* user (de base)
 	* Comment ajouter une nouvelle route (ajouter dans l'inde.js => faire l'appel dans le controller)
-	
-	
-Pour sauvegarder nos données, nous avons utilisé une base NoSQL, MongoBD, qui nous a permis de stocker nos informations 
-sous format de collections. 
-Pour faire des requêtes sur la base, nous avons utilisé l'objet "$http" d'Angular. Ce dernier
-permet de faire des requêtes HTTP sur un service REST. Pour créer un service REST dans le squelette "Angular-fullstack", 
-il existe une tâche dans Yoemann ("yo angular-fullstack:endpoint $ENDPOINT_NAME$"). Cette dernière va générer tout les
-fichiers nécéssaire dans /server/api.
+
+To save our data we use the NoSQL database MongoDB. It use a collection system instead of the classic table 
+in a relation database.
+When we want to do a query in the database, we use the "$http" object from Angular. That allow us to do HTTP request to 
+the REST API.
+For create the API in our skeleton, the template give us a method call "yo angular-fullstack:endpoint $ENDPOINT_NAME$". 
+This method create all the file in the /server/api folder with the default CRUD operator.
+
 When we create a endpoint, a new folder who contain all needed file is created. Here the description of this file :
   * index.js : Contain all REST route that we can used for interacts with Mongo.
   * controller.js : Contain the function who are called by index.js. By default there is a CRUD operation.
@@ -92,3 +92,8 @@ CORS configuration
   </CORSConfiguration>
 
 - AU PDF.js
+
+
+$scope
+$scope is the environment of the current application. This mean that when you want to create a variable in the app, 
+you have to create it throw the $scope. Like that you can use it in the different view (Jade , ... ).
