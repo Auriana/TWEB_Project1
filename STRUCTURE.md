@@ -71,4 +71,24 @@ callback validate the form and switch the page.
 	tuto : http://www.cheynewallace.com/uploading-to-s3-with-angularjs/
 	(voir emails du prof)
 	
+CORS configuration
+	
+	<?xml version="1.0" encoding="UTF-8"?>
+  <CORSConfiguration xmlns="http://s3.amazonaws.com/doc/2006-03-01/">
+      <CORSRule>
+          <AllowedOrigin>*</AllowedOrigin>
+          <AllowedMethod>GET</AllowedMethod>
+          <AllowedMethod>PUT</AllowedMethod>
+          <MaxAgeSeconds>3000</MaxAgeSeconds>
+          <ExposeHeader>x-amz-server-side-encryption</ExposeHeader>
+          <ExposeHeader>x-amz-request-id</ExposeHeader>
+          <ExposeHeader>x-amz-id-2</ExposeHeader>
+          <ExposeHeader>Accept-Ranges</ExposeHeader>
+          <ExposeHeader>Content-Encoding</ExposeHeader>
+          <ExposeHeader>Content-Length </ExposeHeader>
+          <ExposeHeader>Content-Range</ExposeHeader>
+          <AllowedHeader>*</AllowedHeader>
+      </CORSRule>
+  </CORSConfiguration>
+
 - AU PDF.js
