@@ -48,7 +48,7 @@ and to assess the presenter if the audience has understood his/her speech.
 
 As it is mentioned above, Dimmi is a web application, built with [AngularJS](https://angularjs.org) and [MongoDB](http://www.mongodb.org) on [Heroku.com](https://www.heroku.com). Plus, this project uses [PDF.js](http://mozilla.github.io/pdf.js) and [Amazon S3 platform](http://aws.amazon.com/s3/?nc2=h_ls). 
 
-So, curious ? The very technical details are situated on [STUCTURE.md](https://github.com/Auriana/TWEB_Project1/blob/master/STRUCTURE.md).
+So, curious ? The very technical details are situated on [DOCUMENTATION.md](https://github.com/Auriana/TWEB_Project1/blob/master/DOCUMENTATION.md).
 
 
 ## <a name="State"></a>3. What is the current state of the project

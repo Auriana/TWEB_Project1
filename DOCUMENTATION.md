@@ -1,5 +1,5 @@
-Structure of DIMMI application
-==============================
+Documentation for Dimmi application
+===================================
 
 This document presents how Dimmi is built. The explanations include the used tools, the structure of the files, the data base aspect, and the libraries required for the completion of this work.
 
