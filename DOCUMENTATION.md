@@ -9,23 +9,30 @@ The content covers:
 
 1. [Quick overview](#overview)
 2. [Files structure](#structure)	
-	2.1 [Description](#description) 
+	2.1 [Description](#description)
+	
 	2.2 [Bower](#bower)
 3. [Data Base](#db)
 	3.1 [MongoDB](#mongodb)	
-	3.2 [Entities](#entities)	
+	
+	3.2 [Entities](#entities)
+	
 	3.3 [Mongoose](#mongoose)	
+	
 	3.4 [REST API](#rest)	
+	
 	3.5 [Adding a route](#route)
 4. [Implementation details](#details)
 	4.1 [$scope](#scope)	
+	
 	4.2 [From home page to presenter/viewer sides](#passing)
 5. [PDF loading and displaying](#loading)
 	5.1 [PDF.js](#pdfjs)	
+	
 	5.2 [Adapting to Dimmi](#adapting)
 6. [PDF storing](#hosting)
-	6.1 [Amazon S3](#amazon)	
-	6.2 [Configurations](#config)
+	6.1. [Amazon S3](#amazon)	
+	6.2. [Configurations](#config)
 7. [Landing Page](#landing)
 8. [Summary of technologies](#techno)
 
@@ -241,7 +248,7 @@ Furthermore, we used [Socket.io](http://socket.io), which enables real-time bidi
 
 With the use of Heroku and the fact that many PDF files could be uploaded on it, we had to find a solution to store these files. We use the Amazon Web Services, the S3 platform in particular.
 
- The Amazon S3 bucket has been configured to allow CORS access to allow us to retreive the PDF files. The upload is done in the front end on the client.
+The Amazon S3 bucket has been configured to allow CORS access, in order to allow us to retreive the PDF files. The upload is done in the front-end, on the client-side.
 
 ###6.1 <a name="amazon"></a>Amazon S3###
 
@@ -278,21 +285,21 @@ And the `CORSRule` :
 
 ##7. <a name="landing"></a>Landing Page##
 
-The template of the landing page comes from http://www.blacktie.co/2013/12/flatty-app-landing-page. We especially have been inspired by the structure of the page. Indeed, we change the other aspects in order that the design and the content match with Dimmi’s concept, and its current state. This page is implemented in the client/app/account/home.jade file.
+The template of the landing page comes from http://www.blacktie.co/2013/12/flatty-app-landing-page. We especially have been inspired by the structure of the page. Indeed, we change the other aspects in order that the design and the content match with Dimmi’s concept, and its current state. This page is implemented in the `client/app/account/home.jade` file.
 
 ------
 
 ##8. <a name="techno"></a>Summary of technologies##
 
-Here is the list of all the technologies we have used in this project. We haven^t talked about all of them, but you'll find the link to know more about them.
+Here is the list of all the technologies we have used in this project. We haven't talked about all of them, but you'll find the link to know more about them.
 
 * Scaffolding and building technologies:
 	* [Yo](https://github.com/yeoman/yo)
 	* [Grunt](http://gruntjs.com)
 * Back-end technologies:
 	* [NPM](https://www.npmjs.com)
-	* [Node.js](nodejs.org)
-	* [Express](http://expressjs.com)
+	* [NodeJS](nodejs.org)
+	* [ExpressJS](http://expressjs.com)
 	* [MongoDB](http://www.mongodb.org)
 	* [Mongoose](http://mongoosejs.com)
 	* [SocketIO](http://socket.io)
