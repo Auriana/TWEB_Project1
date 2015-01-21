@@ -8,54 +8,37 @@ This document presents how Dimmi is built. The explanations include the used too
 The content covers:
 
 1. [Quick overview](#overview)
-
-2. [Files structure](#structure)
-	
+2. [Files structure](#structure)	
 	2.1 [Description](#description) 
-	
 	2.2 [Bower](#bower)
-
 3. [Data Base](#db)
-
-	3.1 [MongoDB](#mongodb)
-	
-	3.2 [Entities](#entities)
-	
-	3.3 [Mongoose](#mongoose)
-	
-	3.4 [REST API](#rest)
-	
+	3.1 [MongoDB](#mongodb)	
+	3.2 [Entities](#entities)	
+	3.3 [Mongoose](#mongoose)	
+	3.4 [REST API](#rest)	
 	3.5 [Adding a route](#route)
-
 4. [Implementation details](#details)
-
-	4.1 [$scope](#scope)
-	
+	4.1 [$scope](#scope)	
 	4.2 [From home page to presenter/viewer sides](#passing)
-
 5. [PDF loading and displaying](#loading)
-
-	5.1 [PDF.js](#pdfjs)
-	
+	5.1 [PDF.js](#pdfjs)	
 	5.2 [Adapting to Dimmi](#adapting)
-
-6. [PDF hosting](#hosting)
-
-	6.1 [Amazon S3](#amazon)
-	
+6. [PDF storing](#hosting)
+	6.1 [Amazon S3](#amazon)	
 	6.2 [Configurations](#config)
-
 7. [Landing Page](#landing)
+8. [Summary of technologies](#techno)
 
 
 ##1. <a name="overview"></a>Quick overview##
 
 In order to develop the infrastructure of our application, we used [Yeoman](http://yeoman.io). Its workflow includes other technologies:
-* [AngularJS]( https://angularjs.org), the JavaScript framework
+* [AngularJS](https://angularjs.org), the JavaScript framework
 * [Bower](http://bower.io), the management tool (see chapter [Files structure](#structure))
 * [Grunt](http://gruntjs.com), the build tool
 
 Thank to Yo generating project skeleton, we could install the [AngularJS Full-Stack generator](https://github.com/DaftMonk/generator-angular-fullstack), and selected several options, including:
+
 * Client-side :
 	* Scripts: JavaScript
 	* Markup: Jade 
@@ -64,7 +47,7 @@ Thank to Yo generating project skeleton, we could install the [AngularJS Full-St
 	* Database: MongoDB 
 	* Socket.io
 
-Moreover, we used [Bootstrap](http://getbootstrap.com/), the famous HTML-CSS-JavaScript framework for developping the design in a easier and responsive way. 
+Moreover, we used [Bootstrap](http://getbootstrap.com), the famous HTML-CSS-JavaScript framework for developping the design in a easier and responsive way. 
 
 
 ##2. <a name="structure"></a>Files structure##
@@ -133,7 +116,7 @@ Bower is a great tool which manages frameworks, libraries, assets, and utilities
 
 ###3.1 <a name="mongodb"></a>MongoDB###
 
-To save the data, we use the NoSQL database [MongoDB](http://www.mongodb.org/). It uses a collection system instead of the classic tables in a relation database.
+To save the data, we use the NoSQL database [MongoDB](http://www.mongodb.org). It uses a collection system instead of the classic tables in a relation database.
 
 
 ###3.2 <a name="entities"></a>Entities###
@@ -208,11 +191,7 @@ Generally, to change the page automatically, we use the javascript propriety `wi
 
 ###5.1 <a name="pdfjs"></a>PDF.js###
 
-The two main purposes of this application are the following:
--	For the presenter : to upload the PDF file.
--	For the viewer : to display the PDF file.
-
-In order to implement them, we used an existing library: [PDF.js](http://mozilla.github.io/pdf.js). It provided us several useful functions (where `num` is the number of the page):
+In order to be able to display PDF files, we used an existing library: [PDF.js](http://mozilla.github.io/pdf.js). It provided us several useful functions (where `num` is the number of the page):
 - `renderPage(num)`: gets page information from the document, resize the canvas according to it, and render the page `num`.
 - `queueRenderPage(num)`: if another page is rendering in progress, waits until the rendering is finised. Otherwise, executes the rendering immediately.
 - `onPrevPage()`: displays the previous page.
@@ -258,13 +237,15 @@ Furthermore, we used [Socket.io](http://socket.io), which enables real-time bidi
 `ViewerSide.controller.js` : On the other hand, we have to get this notification and make the necessay changes.
 
 
-##6. <a name="hosting"></a>PDF hosting##
+##6. <a name="hosting"></a>PDF storing##
 
-With the use of Heroku and the fact that many PDF files could be uploaded on it, we had to find a solution to host these files. We use the Amazon Web Services, the S3 platform in particular.
+With the use of Heroku and the fact that many PDF files could be uploaded on it, we had to find a solution to store these files. We use the Amazon Web Services, the S3 platform in particular.
+
+ The Amazon S3 bucket has been configured to allow CORS access to allow us to retreive the PDF files. The upload is done in the front end on the client.
 
 ###6.1 <a name="amazon"></a>Amazon S3###
 
-In order to configure S3 with our application, we followed this tutorial : [http://www.cheynewallace.com/uploading-to-s3-with-angularjs](http://www.cheynewallace.com/uploading-to-s3-with-angularjs). But we still had to have the right configuration. This is showed after.
+In order to configure S3 with our application, we followed this tutorial : [http://www.cheynewallace.com/uploading-to-s3-with-angularjs](http://www.cheynewallace.com/uploading-to-s3-with-angularjs). This is particularly described to use `the aws-sdk-js bower package`, in order to be able to upload files on Amazon S3. 
 	
 ###6.2 <a name="config"></a>Configurations###
 
@@ -298,3 +279,26 @@ And the `CORSRule` :
 ##7. <a name="landing"></a>Landing Page##
 
 The template of the landing page comes from http://www.blacktie.co/2013/12/flatty-app-landing-page. We especially have been inspired by the structure of the page. Indeed, we change the other aspects in order that the design and the content match with Dimmi’s concept, and its current state. This page is implemented in the client/app/account/home.jade file.
+
+------
+
+##8. <a name="techno"></a>Summary of technologies##
+
+Here is the list of all the technologies we have used in this project. We haven^t talked about all of them, but you'll find the link to know more about them.
+
+* Scaffolding and building technologies:
+	* [Yo](https://github.com/yeoman/yo)
+	* [Grunt](http://gruntjs.com)
+* Back-end technologies:
+	* [NPM](https://www.npmjs.com)
+	* [Node.js](nodejs.org)
+	* [Express](http://expressjs.com)
+	* [MongoDB](http://www.mongodb.org)
+	* [Mongoose](http://mongoosejs.com)
+	* [SocketIO](http://socket.io)
+	* [Amazon S3](http://getbootstrap.com)
+* Front-end technologies:
+	* [Bower](http://bower.io)
+	* [AngularJS](https://angularjs.org)
+	* [Bootstrap](http://getbootstrap.com)
+	* [PDF.js](http://mozilla.github.io/pdf.js)
