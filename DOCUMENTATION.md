@@ -12,26 +12,37 @@ The content covers:
 2. [Files structure](#structure)
 	
 	2.1 [Description](#description) 
+	
 	2.2 [Bower](#bower)
 
 3. [Data Base](#db)
 
 	3.1 [MongoDB](#mongodb)
+	
 	3.2 [Entities](#entities)
+	
 	3.3 [Mongoose](#mongoose)
+	
 	3.4 [REST API](#rest)
+	
 	3.5 [Adding a route](#route)
 
 4. [Implementation details](#details)
 
 	4.1 [$scope](#scope)
+	
 	4.2 [From home page to presenter/viewer sides](#passing)
 
 5. [PDF loading and displaying](#loading)
 
+	5.1 [PDF.js](#pdfjs)
+	
+	5.2 [Adapting to Dimmi](#adapting)
+
 6. [PDF hosting](#hosting)
 
 	6.1 [Amazon S3](#amazon)
+	
 	6.2 [Configurations](#config)
 
 7. [Landing Page](#landing)
@@ -166,7 +177,7 @@ When it is necessary to do a query in the database, we use the `$http` object fr
 In order to create the API in our skeleton, the template provides us a method called `yo angular-fullstack:endpoint $ENDPOINT_NAME$`. 
 This method creates the entire file in the `/server/api`folder with the default CRUD operators.
 
-When we create a endpoint (or entity), a new folder is created, which contains all the necessary files. Here are the description of those files :
+When we create an endpoint (or entity), a new folder is automatically created, which contains all the necessary files. Here are the description of those files :
 
 * index.js : contains all the REST route that we can use for interactions with Mongo.
 * controller.js : contains the functions which are called by index.js. By default, there is a CRUD operation.
@@ -195,17 +206,21 @@ Generally, to change the page automatically, we use the javascript propriety `wi
 
 ##5. <a name="loading"></a>PDF loading and displaying##
 
+###5.1 <a name="pdfjs"></a>PDF.js###
+
 The two main purposes of this application are the following:
 -	For the presenter : to upload the PDF file.
 -	For the viewer : to display the PDF file.
 
-In order to implement them, we used an existing library: [PDF.js](http://mozilla.github.io/pdf.js). It provided us several useful functions, like :
-- `renderParge(pageNumber)` to
-- `queueRenderPage(pageNumber)` to
-- `onPreivousPage()` to ...
+In order to implement them, we used an existing library: [PDF.js](http://mozilla.github.io/pdf.js). It provided us several useful functions (where `num` is the number of the page):
+- `renderPage(num)`: gets page information from the document, resize the canvas according to it, and render the page `num`.
+- `queueRenderPage(num)`: if another page is rendering in progress, waits until the rendering is finised. Otherwise, executes the rendering immediately.
+- `onPrevPage()`: displays the previous page.
+- `onNextPage()`: displays the next page.
 
+###5.2 <a name="adapting"></a> Adapting to Dimmi###
 
-But it was more complicated to add the provided features to our application, because of our specific infrastructure. We had to add the javascript code (from the library) to the controllers of the presenterSide and the viewerSide pages (`client/app/presenterSide.controller.js` and `client/app/viewerSide.controller.js`). Then, it was necessary to include in another way the generated `pdf.worker.js` file: so that Bower does not insclude it in its generated files, we had to write the following code slightly below the other automatic script includes.
+But it was more complicated to add the provided features to our application, because of our specific infrastructure. We had to add the javascript code (from the library) to the controllers of the presenterSide and the viewerSide pages (`client/app/presenterSide.controller.js` and `client/app/viewerSide.controller.js`). Then, it was necessary to include in another way the generated `pdf.worker.js` file into the `client/index.html`: so that Bower does not include it in its generated files, we had to write the following code slightly below the other automatic script includes.
 
 ```
 <script type="application/javascript">
@@ -214,7 +229,33 @@ But it was more complicated to add the provided features to our application, bec
 
 ```
 
-Plus, we had to change several parameters from the initial code. For example, `function onPrevPage() {...}` became `$scope.onPrevPage = function () {...]`in order this function could be called by the button linked to this action. 
+Let's go back to the `presenterSide.controller.js` and the `viewerSide.controller.js` files : we had to change several parameters from the initial code. For example, `function onPrevPage() {...}` became `$scope.onPrevPage = function () {...]`so that this function could be called by the button linked to this action. 
+
+Furthermore, we used [Socket.io](http://socket.io), which enables real-time bidirectional event-based communication. In the case of the PDF showing, it was really useful, because our goal was to updates viewer's current page, when the presenter changes his/hers. Let's have a look at the following code:
+
+
+```
+    $scope.onNextPage = function () {
+      if (pageNum >= pdfDoc.numPages) {
+        return;
+      }
+      pageNum++;
+      socket.socket.emit('pageNumber', pageNum);
+      queueRenderPage(pageNum);
+    }
+```
+`PresenterSide.controller.js` : On the one hand, we have to catch the information from the changing page.
+
+
+```
+    //Synchronizing PDF pages
+    socket.socket.on('pageNumber', function (num) {
+      queueRenderPage(num);
+      pageNum = num;
+    });
+	
+```
+`ViewerSide.controller.js` : On the other hand, we have to get this notification and make the necessay changes.
 
 
 ##6. <a name="hosting"></a>PDF hosting##
