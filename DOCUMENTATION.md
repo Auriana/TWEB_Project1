@@ -8,26 +8,47 @@ This document presents how Dimmi is built. The explanations include the used too
 The content covers:
 
 1. [Quick overview](#overview)
+
 2. [Files structure](#structure)
+
 	2.1 [Description](#description)
+	
 	2.2 [Bower](#bower)
+	
 3. [Data Base](#db)
+
 	3.1 [MongoDB](#mongodb)
+	
 	3.2 [Entities](#entities)
+	
 	3.3 [Mongoose](#mongoose)	
+	
 	3.4 [REST API](#rest)
+	
 	3.5 [Adding a route](#route)
+	
 4. [Implementation details](#details)
+
 	4.1 [$scope](#scope)
+	
 	4.2 [Chat](#chat)
+	
 	4.3 [From home page to presenter/viewer sides](#passing)
+	
 5. [PDF loading and displaying](#loading)
+
 	5.1 [PDF.js](#pdfjs)
+	
 	5.2 [Adapting to Dimmi](#adapting)
+	
 6. [PDF storing](#hosting)
+
 	6.1 [Amazon S3](#amazon)
+	
 	6.2 [Configurations](#config)
+	
 7. [Landing Page](#landing)
+
 8. [Summary of technologies](#techno)
 
 --------
@@ -49,7 +70,7 @@ Thank to Yo generating project skeleton, we could install the [AngularJS Full-St
 	* Database: MongoDB 
 	* Socket.io
 
-Moreover, we used [Bootstrap](http://getbootstrap.com), the famous HTML-CSS-JavaScript framework for developping the design in a easier and responsive way. 
+Moreover, we used [Bootstrap](http://getbootstrap.com), the famous HTML-CSS-JavaScript framework for developing the design in an easier and responsive way. 
 
 
 ##2. <a name="structure"></a>Files structure##
@@ -81,7 +102,7 @@ Each model has an affiliated Stylus file. For example, the home page has its "st
 
 ###2.2 <a name="bower"></a>Bower###
 
-Bower is a great tool which manages frameworks, libraries, assets, and utilities. Its work includes installing packages, and manages them in a specific file `bower.json`. Tipically, the content of ours is the following:
+Bower is a great tool which manages frameworks, libraries, assets, and utilities. Its work includes installing packages, and manages them in a specific file `bower.json`. Typically, the content of ours is the following:
 
 ```
 {
@@ -154,20 +175,19 @@ var PresentationSchema = new Schema({
 module.exports = mongoose.model('Presentation', PresentationSchema);
 
 ```
-
 ###3.4 <a name="rest"></a>REST API###
 
 When it is necessary to do a query in the database, we use the `$http` object from Angular. That allows us to do HTTP request to the REST API.
 
 In order to create the API in our skeleton, the template provides us a method called `yo angular-fullstack:endpoint $ENDPOINT_NAME$`. 
-This method creates the entire file in the `/server/api`folder with the default CRUD operators.
+This method creates the entire file in the `/server/api` folder with the default CRUD operators.
 
 When we create an endpoint (or entity), a new folder is automatically created, which contains all the necessary files. Here are the description of those files :
 
 * index.js : contains all the REST route that we can use for interactions with Mongo.
 * controller.js : contains the functions which are called by index.js. By default, there is a CRUD operation.
 * model.js : contains the structure of our collection in MongoDB.
-* socket.js : contains some functions used by SocketIO, for exemple to broadcast a new entry.
+* socket.js : contains some functions used by SocketIO, for example to broadcast a new entry.
 * spec.js : defines the I/O of the REST service.
   
 ###3.5 <a name="route"></a>Adding a route###
@@ -188,9 +208,13 @@ The `$scope` is an object that refers to the application model. This means that 
 First, we thought to propose only a simple chat. However, later, we wanted to add the special messages we call "requests". They are : "Slow down", "Louder, please", "I'm lost" and "Interesting". They allows to post simple but effective messages to the presenter. Plus, it's easy to see them quickly from the point of view of the presenter. To implement them, here is the way we proceeded (example with "Slow down"):
 
 `ViewerSide.jade` file:
-`button.btn.btn-default.black-button(type='button', value='slow_down', ng-click="slowBut()") Slow down`
 
-This is the button fot the "Slow down" request for the audience. Notice the `ng-click="slowBut()` which allows to call the following function from `ViewerSide.controller.js`file :
+```
+	button.btn.btn-default.black-button(type='button', value='slow_down', ng-click="slowBut()") Slow down
+
+```
+
+This is the button for the "Slow down" request for the audience. Notice the `ng-click="slowBut()` which allows to call the following function from `ViewerSide.controller.js`file :
 
 ```
 	$scope.slowBut = function () {
@@ -208,7 +232,7 @@ This is the button fot the "Slow down" request for the audience. Notice the `ng-
 
 This function adds a message into the database (thanks to the ` $http.post(...)` function), with its relative information (date, type, presentation's id, ...).
 
-On the other side, in the `PresenterSide.controller.js`file, we first set to 0 each number of occurence of the requests :
+On the other side, in the `PresenterSide.controller.js`file, we first set to 0 each number of occurrence of the requests :
 
 ```
     $scope.nbSlow = 0;
@@ -250,11 +274,11 @@ And finally we print them on the presenter's board (`PresenterSide.jade` file):
       p.btn.btn-lg.black-button {{nbInte}} Interesting
 ```
 
-As explained before, we use the $scope to render the view : `{{nbSlow}}` becomes the curent number of occurence made by the audience (in the case of the "Slow down" request).
+As explained before, we use the $scope to render the view : `{{nbSlow}}` becomes the current number of occurrence made by the audience (in the case of the "Slow down" request).
 
 ###4.3 <a name="passing"></a>From home page to presenter/viewer sides###
 
-Generally, to change the page automatically, we use the javascript propriety `window.location`. Besides, it's a bit more complicated when passing from home page to presenter/viewer sides. It is indeed necessary to keep the information of the presentation. To do that, we put the presentation's id into the URL. The callback function checks if the previous call was successful, validates the form, loads the PDF file, and finally switches the page.
+Generally, to change the page automatically, we use the javascript propriety `window.location`. Besides, it's a bit more complicated when passing from home page to presenter/viewer sides. It is indeed necessary to keep the information of the presentation. To do that, we put the presentation's id into the URL. The call-back function checks if the previous call was successful, validates the form, loads the PDF file, and finally switches the page.
 
 
 ##5. <a name="loading"></a>PDF loading and displaying##
@@ -307,14 +331,14 @@ On the one hand, we have to catch the information from the changing page.
     });
 	
 ```
-On the other hand, we have to get this notification and make the necessay changes.
+On the other hand, we have to get this notification and make the necessary changes.
 
 
 ##6. <a name="hosting"></a>PDF storing##
 
 With the use of Heroku and the fact that many PDF files could be uploaded on it, we had to find a solution to store these files. We use the Amazon Web Services, the S3 platform in particular.
 
-The Amazon S3 bucket has been configured to allow CORS access, in order to allow us to retreive the PDF files. The upload is done in the front-end, on the client-side.
+The Amazon S3 bucket has been configured to allow CORS access, in order to allow us to retrieve the PDF files. The upload is done in the front-end, on the client-side.
 
 ###6.1 <a name="amazon"></a>Amazon S3###
 
