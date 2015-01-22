@@ -274,7 +274,7 @@ And finally we print them on the presenter's board (`PresenterSide.jade` file):
       p.btn.btn-lg.black-button {{nbInte}} Interesting
 ```
 
-As explained before, we use the $scope to render the view : `{{nbSlow}}` becomes the current number of occurrence made by the audience (in the case of the "Slow down" request).
+As explained before, we use the `$scope` to render the view : `{{nbSlow}}` becomes the current number of occurrence made by the audience (in the case of the "Slow down" request).
 
 ###4.3 <a name="passing"></a>From home page to presenter/viewer sides###
 
