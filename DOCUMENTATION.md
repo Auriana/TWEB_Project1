@@ -8,34 +8,29 @@ This document presents how Dimmi is built. The explanations include the used too
 The content covers:
 
 1. [Quick overview](#overview)
-2. [Files structure](#structure)	
+2. [Files structure](#structure)
 	2.1 [Description](#description)
-	
 	2.2 [Bower](#bower)
 3. [Data Base](#db)
-	3.1 [MongoDB](#mongodb)	
-	
+	3.1 [MongoDB](#mongodb)
 	3.2 [Entities](#entities)
-	
 	3.3 [Mongoose](#mongoose)	
-	
-	3.4 [REST API](#rest)	
-	
+	3.4 [REST API](#rest)
 	3.5 [Adding a route](#route)
 4. [Implementation details](#details)
-	4.1 [$scope](#scope)	
-	
-	4.2 [From home page to presenter/viewer sides](#passing)
+	4.1 [$scope](#scope)
+	4.2 [Chat](#chat)
+	4.3 [From home page to presenter/viewer sides](#passing)
 5. [PDF loading and displaying](#loading)
-	5.1 [PDF.js](#pdfjs)	
-	
+	5.1 [PDF.js](#pdfjs)
 	5.2 [Adapting to Dimmi](#adapting)
 6. [PDF storing](#hosting)
-	6.1. [Amazon S3](#amazon)	
-	6.2. [Configurations](#config)
+	6.1 [Amazon S3](#amazon)
+	6.2 [Configurations](#config)
 7. [Landing Page](#landing)
 8. [Summary of technologies](#techno)
 
+--------
 
 ##1. <a name="overview"></a>Quick overview##
 
@@ -186,10 +181,78 @@ In the client side, we have to use `$http` to send REST request, for example `$h
 
 ###4.1 <a name="scope"></a>$scope###
 
-The `$scope` variable represents the environment of the current application. This means that when we want to create a variable in the app, 
-we have to create it through the `$scope`. In this way, it's possible to use it in the different views (jade , ...).
+The `$scope` is an object that refers to the application model. This means that when we want to create a variable in the app, we have to create it through the `$scope`. In this way, it's possible to use it in the different views (jade , ...). Later, we'll see examples with the requests and the "prev" button.
 
-###4.2 <a name="passing"></a>From home page to presenter/viewer sides###
+###4.2 <a name="chat"></a>Chat###
+
+First, we thought to propose only a simple chat. However, later, we wanted to add the special messages we call "requests". They are : "Slow down", "Louder, please", "I'm lost" and "Interesting". They allows to post simple but effective messages to the presenter. Plus, it's easy to see them quickly from the point of view of the presenter. To implement them, here is the way we proceeded (example with "Slow down"):
+
+`ViewerSide.jade` file:
+`button.btn.btn-default.black-button(type='button', value='slow_down', ng-click="slowBut()") Slow down`
+
+This is the button fot the "Slow down" request for the audience. Notice the `ng-click="slowBut()` which allows to call the following function from `ViewerSide.controller.js`file :
+
+```
+	$scope.slowBut = function () {
+      $scope.date = new Date();
+      $scope.formedDate = $scope.date.getHours() + 'h' + $scope.date.getMinutes();
+      $http.post('/api/messages', {
+        name: "Slow down!",
+        time: $scope.formedDate,
+        type: "slow",
+        presentationId: $scope.presentationId,
+	      numSlide: pageNum + ""
+      });
+    }
+```
+
+This function adds a message into the database (thanks to the ` $http.post(...)` function), with its relative information (date, type, presentation's id, ...).
+
+On the other side, in the `PresenterSide.controller.js`file, we first set to 0 each number of occurence of the requests :
+
+```
+    $scope.nbSlow = 0;
+    $scope.nbLost = 0;
+    $scope.nbLoud = 0;
+    $scope.nbInte = 0;
+```
+
+We count them through the following code :
+
+```
+      for (var i = 0; i < $scope.listeMsg.length; i++) {
+        switch ($scope.listeMsg[i].type) {
+          case "slow":
+            $scope.nbSlow++;
+            break;
+
+          case "lost":
+            $scope.nbLost++;
+            break;
+
+          case "loud":
+            $scope.nbLoud++;
+            break;
+
+          case "interesting":
+            $scope.nbInte++;
+            break;
+        }
+      }
+```
+
+And finally we print them on the presenter's board (`PresenterSide.jade` file):
+
+```
+      p.btn.btn-lg.black-button {{nbSlow}} Slow down
+      p.btn.btn-lg.black-button {{nbLoud}} Louder, please
+      p.btn.btn-lg.black-button {{nbLost}} I'm lost
+      p.btn.btn-lg.black-button {{nbInte}} Interesting
+```
+
+As explained before, we use the $scope to render the view : `{{nbSlow}}` becomes the curent number of occurence made by the audience (in the case of the "Slow down" request).
+
+###4.3 <a name="passing"></a>From home page to presenter/viewer sides###
 
 Generally, to change the page automatically, we use the javascript propriety `window.location`. Besides, it's a bit more complicated when passing from home page to presenter/viewer sides. It is indeed necessary to keep the information of the presentation. To do that, we put the presentation's id into the URL. The callback function checks if the previous call was successful, validates the form, loads the PDF file, and finally switches the page.
 
@@ -199,7 +262,7 @@ Generally, to change the page automatically, we use the javascript propriety `wi
 ###5.1 <a name="pdfjs"></a>PDF.js###
 
 In order to be able to display PDF files, we used an existing library: [PDF.js](http://mozilla.github.io/pdf.js). It provided us several useful functions (where `num` is the number of the page):
-- `renderPage(num)`: gets page information from the document, resize the canvas according to it, and render the page `num`.
+- `renderPage(num)`: gets page information from the document, resize the canvas according to it, and render the page.
 - `queueRenderPage(num)`: if another page is rendering in progress, waits until the rendering is finised. Otherwise, executes the rendering immediately.
 - `onPrevPage()`: displays the previous page.
 - `onNextPage()`: displays the next page.
@@ -212,7 +275,6 @@ But it was more complicated to add the provided features to our application, bec
 <script type="application/javascript">
   PDFJS.workerSrc = 'bower_components/pdfjs-dist/build/pdf.worker.js';
 </script>`
-
 ```
 
 Let's go back to the `presenterSide.controller.js` and the `viewerSide.controller.js` files : we had to change several parameters from the initial code. For example, `function onPrevPage() {...}` became `$scope.onPrevPage = function () {...]`so that this function could be called by the button linked to this action. 
@@ -221,7 +283,9 @@ Furthermore, we used [Socket.io](http://socket.io), which enables real-time bidi
 
 
 ```
-    $scope.onNextPage = function () {
+	// PresenterSide.controller.js file :
+    
+	$scope.onNextPage = function () {
       if (pageNum >= pdfDoc.numPages) {
         return;
       }
@@ -230,18 +294,20 @@ Furthermore, we used [Socket.io](http://socket.io), which enables real-time bidi
       queueRenderPage(pageNum);
     }
 ```
-`PresenterSide.controller.js` : On the one hand, we have to catch the information from the changing page.
+On the one hand, we have to catch the information from the changing page.
 
 
 ```
-    //Synchronizing PDF pages
+	// ViewerSide.controller.js file :
+    
+	//Synchronizing PDF pages
     socket.socket.on('pageNumber', function (num) {
       queueRenderPage(num);
       pageNum = num;
     });
 	
 ```
-`ViewerSide.controller.js` : On the other hand, we have to get this notification and make the necessay changes.
+On the other hand, we have to get this notification and make the necessay changes.
 
 
 ##6. <a name="hosting"></a>PDF storing##
